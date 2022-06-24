@@ -1,0 +1,20 @@
+.active {
+  background-image: linear-gradient(90deg, #FF7A00, #9DADFF) !important;
+  background-clip: text;
+  color: transparent;
+}
+
+.active-icon {
+  background-image: linear-gradient(90deg, #FF7A00, #9DADFF);
+  color: white;
+}
+
+.bg {
+  --background: '#FFF';
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 10%;
+}
+
+.ion-icon {
+  font-size: 48px;
+}

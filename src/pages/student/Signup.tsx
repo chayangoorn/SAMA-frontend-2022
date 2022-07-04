@@ -11,16 +11,19 @@ const SignupPage: React.FC = () => {
     number: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(signUp)
+    /*
     try {
       auth.createUserWithEmailAndPassword(signUp.email, signUp.password);
       console.log("success");
     } catch (error) {
       alert(error);
-    }
+    } */
   };
 
   const onChangeInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +36,7 @@ const SignupPage: React.FC = () => {
     <IonPage>
       <IonContent>
         <div className="p-8">
-          <h1 className="text-center text-2xl font-bold mb-5">REGISTER</h1>
+          <h1 className="text-center text-2xl font-bold mb-5">STUDENT REGISTER</h1>
           <form
             onSubmit={(e) => {
               handleSubmit(e);
@@ -76,19 +79,23 @@ const SignupPage: React.FC = () => {
                   ></FloatingInput>
                 </div>
               </div>
-              <div className="form-group mb-5">
+              <div className="form-group grid gap-y-3">
                 <FloatingInput
                   label="Email"
                   type="email"
                   name="email"
                   onChangeHandler={onChangeInputHandler}
                 ></FloatingInput>
-              </div>
-              <div className="form-group">
                 <FloatingInput
                   label="Password"
                   type="password"
                   name="password"
+                  onChangeHandler={onChangeInputHandler}
+                ></FloatingInput>
+                <FloatingInput
+                  label="confirm Password"
+                  type="password"
+                  name="confirmPassword"
                   onChangeHandler={onChangeInputHandler}
                 ></FloatingInput>
               </div>

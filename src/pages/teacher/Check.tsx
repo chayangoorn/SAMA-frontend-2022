@@ -33,12 +33,12 @@ const CheckPage: React.FC = () => {
             <div className="font-bold text-lg mb-10">Activities for check</div>
             <div className="mt-3">
                 {data?.data.map((value, index) => {
-                    return <ListBackground key={index} act={value.act_type} teacher={true} data={value} refresh={onRefresh}></ListBackground>
-                })}
-                
+                    return <ListBackground key={index} act={value.act_type} teacher={true} data={value} refresh={onRefresh} check={true}></ListBackground>
+                })} 
             </div>
           </div>
         </div>
+        {data.data.length ? "" : <div className='text-center text-xl mt-10'>ไม่มีกิจกรรมที่ต้องตรวจ</div>}
             </IonContent>
         </IonPage>
     )

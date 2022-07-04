@@ -18,10 +18,6 @@ const AchievePage: React.FC = () => {
     dispatch(fetchAchieveByID(student.std_id))
   }, [dispatch])
 
-  if (achieves.loading) {
-    return <div>Loading...</div>
-  }
-
   return (
     <IonPage>
       <IonContent fullscreen>

@@ -37,7 +37,6 @@ export const fetchAchieveByID = createAsyncThunk<Points, string>(
       JSON.stringify({ std_id: stdID })
     );
     if (respones.status === 200) {
-        console.log(respones)
       return respones.data;
     } else {
       return thunkAPI.rejectWithValue(respones.statusText);

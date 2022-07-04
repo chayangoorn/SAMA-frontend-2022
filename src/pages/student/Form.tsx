@@ -20,12 +20,14 @@ import FormLayoutLecture from "../../components/FormsLayout/FormLayoutLecture";
 import FormLayoutClub from "../../components/FormsLayout/FormLayoutClub";
 import FormLayoutExercise from "../../components/FormsLayout/FormLayoutExercise";
 import FormLayoutMeet from "../../components/FormsLayout/FormLayoutMeet";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ActData, ValidateAct, StudentUser } from "../../redux/type";
 import { RootState, AppDispatch } from "../../redux/store";
 import { useSelector, useDispatch } from 'react-redux'
 import axios from "axios";
 import { fetchUserBytoken } from "../../redux/features/UserDataSlice";
+import { AuthContext } from "../../Firebase/AuthContext";
+import { initialActData, initialvalidateAct } from "../../redux/initialState";
 
 const FormPage: React.FC = () => {
   const router = useIonRouter();
@@ -34,54 +36,14 @@ const FormPage: React.FC = () => {
   let student = userData.user as StudentUser
   const activities = useSelector((state: RootState) => state.actData.data)
   const [read, setRead] = useState(false)
-  const [actData, setActData] = useState<ActData>({
-    act_id: 0,
-    act_type: '',
-    act_type_name: '',
-    std_id: '',
-    act_date: '',
-    act_head: '',
-    act_print: '',
-    act_hours: 0,
-    act_places: '',
-    act_details: '',
-    act_feels: '',
-    act_time_starts: '',
-    act_time_ends: '',
-    std_firstname: '',
-    std_lastname: '',
-    std_classroom: '',
-    std_number: 0,
-    std_dormitory: '',
-    act_advices: '',
-    tch_firstname: '',
-    tch_lastname: '',
-    act_advices_date: '',
-    flag: 0
-  })
-  const [validation, setValidation] = useState<ValidateAct>({
-    act_date: false,
-    act_head: false,
-    act_print: false,
-    act_hours: false,
-    act_places: false,
-    act_details: false,
-    act_feels: false,
-    act_time_starts: false,
-    act_time_ends: false
-  })
+  const user = useContext(AuthContext)
+  const [actData, setActData] = useState<ActData>(initialActData)
+  const [validation, setValidation] = useState<ValidateAct>(initialvalidateAct)
   const dispatch = useDispatch<AppDispatch>()
-  const options = [
-    "ชุมนุมวิชาการ",
-    "ชุมนุมสังคมศึกษา ภาษา ศาสนา ศิลปวัฒนธรรมและโบราณคดี",
-    "ชุมนุมกีฬาและการออกกำลังกาย",
-    "ชุมนุมกิจกรรมอื่น ๆ"
-  ]
-  const [option, setOption] = useState(0)
   const [present] = useIonAlert();
 
   useEffect(() => {
-    dispatch(fetchUserBytoken('test@gmail.com'))
+    dispatch(fetchUserBytoken(user?.email))
   }, [dispatch])
 
   const checkStatus = (flag: number) => {

@@ -54,7 +54,7 @@ const FormLayoutClub: React.FC<FormProps> = ({
           ปีการศึกษา (พ.ศ.) <span className="text-red-600">*</span>
         </label>
         <input
-          value={data?.act_date}
+          value={data?.act_date.slice(0,4)}
           type="number"
           className="form-control block
           w-full py-1.5 text-base bg-clip-padding

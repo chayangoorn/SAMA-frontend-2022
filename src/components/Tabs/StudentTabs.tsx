@@ -36,7 +36,7 @@ import {
 
 const StudentTabs: React.FC = () => {
   const path = window.location.pathname;
-  const [activeTab, setActiveTab] = useState(path);
+  const [activeTab, setActiveTab] = useState("/home");
 
   const tabs = [
     {
@@ -76,6 +76,7 @@ const StudentTabs: React.FC = () => {
       <IonRouterOutlet>
         <Route path="/record/:form" component={FormPage} exact />
         <Route path="/record/send/:id" component={SelectTeacherPage} exact />
+        <Route path="/manage/edit/:form/send/:id" component={SelectTeacherPage} exact />
         <Route path="/manage/:index" component={ActivitiesPage} exact />
         <Route path="/send/:id" component={SelectTeacherPage} exact />
         <Route path="/manage/edit/:form/:id" component={FormPage} exact />
@@ -102,7 +103,7 @@ const StudentTabs: React.FC = () => {
 
           if (index != 2) {
             return (
-              <IonTabButton key={index} tab={`${tab.url}`} href={tab.url}>
+              <IonTabButton key={index} tab={`${tab.url}`} href={tab.url} style={{'--background': '#FFF'}}>
                 {isActive ? (
                   <IonIcon src={tab.icon[1]} />
                 ) : (
@@ -115,7 +116,7 @@ const StudentTabs: React.FC = () => {
             );
           } else {
             return (
-              <IonTabButton key={index} tab={`${tab.url}`} href={tab.url}>
+              <IonTabButton key={index} tab={`${tab.url}`} href={tab.url} style={{'--background': '#FFF'}}>
                 {isActive ? (
                   <IonIcon src={tab.icon[1]} className="ion-icon" />
                 ) : (

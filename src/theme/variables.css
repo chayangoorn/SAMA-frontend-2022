@@ -120,12 +120,8 @@ input:focus ~ label {
   --ion-color-shade: var(--ion-color-main-shade);
   --ion-color-tint: var(--ion-color-main-tint);
 }
-
+/*
 @media (prefers-color-scheme: dark) {
-  /*
-   * Dark Colors
-   * -------------------------------------------
-   */
 
   body {
     --ion-color-primary: #428cff;
@@ -199,11 +195,6 @@ input:focus ~ label {
     --ion-color-main-tint: #ff7a00;
   }
 
-  /*
-   * iOS Dark Theme
-   * -------------------------------------------
-   */
-
   .ios body {
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0, 0, 0;
@@ -242,11 +233,6 @@ input:focus ~ label {
     --ion-toolbar-border-color: var(--ion-color-step-250);
   }
 
-  /*
-   * Material Design Dark Theme
-   * -------------------------------------------
-   */
-
   .md body {
     --ion-background-color: #121212;
     --ion-background-color-rgb: 18, 18, 18;
@@ -284,4 +270,4 @@ input:focus ~ label {
 
     --ion-card-background: #1e1e1e;
   }
-}
+} */

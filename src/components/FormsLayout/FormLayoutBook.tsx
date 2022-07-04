@@ -92,7 +92,7 @@ const FormLayoutBook: React.FC<FormProps> = ({
       <div className={`form-group mb-2 bg-pccp-light-orange rounded-lg p-3 ${validation?.act_date? 'border-red-400 border-2' : ""} grid grid-cols-2`}>
         <label className="form-label inline-block mb-2 pt-2">ปีที่พิมพ์ (พ.ศ.) <span className="text-red-600">*</span> </label>
         <input
-          value={data?.act_date}
+          value={data?.act_date.slice(0,4)}
           type="number"
           className="form-control block w-full py-1.5 text-base font-normal text-gray-700 bg-transparent
           bg-clip-padding rounded transition 

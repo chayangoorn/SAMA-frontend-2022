@@ -21,6 +21,8 @@ export interface ActData {
     tch_firstname: string
     tch_lastname: string
     act_advices_date: string
+    act_created: string
+    act_updated: string
     flag: number
 }
 

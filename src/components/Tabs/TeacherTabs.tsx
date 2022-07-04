@@ -7,10 +7,12 @@ import {
   IonLabel,
 } from "@ionic/react";
 import { Redirect, Route } from "react-router";
-import { useState } from "react";
-import SearchPage from "../../pages/teacher/Search";
+import { useEffect, useState } from "react";
+import MenuPage from "../../pages/teacher/Menu";
 import CheckPage from "../../pages/teacher/Check";
 import ProfilePage from "../../pages/Profile";
+import SearchPage from "../../pages/teacher/Search";
+import FormPage from "../../pages/student/Form";
 
 import SearchSvg from "../assets/search.svg";
 import DocumentsSvg from "../assets/documents.svg";
@@ -23,17 +25,18 @@ import {
   person,
 } from "ionicons/icons";
 import "./tabs.css";
+import ResultPage from "../../pages/teacher/Result";
+import DetailPage from "../../pages/teacher/Detail";
 
 const TeacherTabs: React.FC = () => {
-  const path = window.location.pathname;
-  const [activeTab, setActiveTab] = useState(path);
+  const [activeTab, setActiveTab] = useState("/check");
 
   const tabs = [
     {
-      label: "Search",
-      url: "/search",
+      label: "Activities",
+      url: "/activities",
       icon: [search, SearchSvg],
-      component: SearchPage,
+      component: MenuPage,
     },
     {
       label: "Check",
@@ -53,6 +56,9 @@ const TeacherTabs: React.FC = () => {
   return (
     <IonTabs>
       <IonRouterOutlet>
+        <Route path="/search" component={SearchPage} exact/>
+        <Route path="/search/:id" component={ResultPage} exact/>
+        <Route path="/search/result/:form/:id" component={DetailPage} exact/>
         {tabs.map((tab, index) => {
           return (
             <Route
@@ -63,7 +69,7 @@ const TeacherTabs: React.FC = () => {
             ></Route>
           );
         })}
-        <Route path="/" render={() => <Redirect to="/profile" />} exact />
+        <Route path="/" render={() => <Redirect to="/check" />} exact />
       </IonRouterOutlet>
       <IonTabBar
         slot="bottom"
@@ -73,7 +79,7 @@ const TeacherTabs: React.FC = () => {
         {tabs.map((tab, index) => {
           const isActive = activeTab === `${tab.url}`;
             return (
-              <IonTabButton key={index} tab={`${tab.url}`} href={tab.url}>
+              <IonTabButton key={index} tab={`${tab.url}`} href={tab.url} style={{'--background': '#FFF'}}>
                 {isActive ? (
                   <IonIcon src={tab.icon[1]} />
                 ) : (

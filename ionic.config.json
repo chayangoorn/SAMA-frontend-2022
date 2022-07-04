@@ -1,5 +1,7 @@
 {
-  "name": "ionic-app-base",
-  "integrations": {},
+  "name": "SAMA",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }

@@ -6,6 +6,7 @@ import { useEffect, useContext } from "react";
 import { fetchUserBytoken } from "../redux/features/UserDataSlice";
 import { AuthContext } from "../Firebase/AuthContext";
 import { StudentUser, TeacherUser } from "../redux/type";
+import blank from '../assets/blankprofile.png'
 
 const ProfilePage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -18,14 +19,18 @@ const ProfilePage: React.FC = () => {
     dispatch(fetchUserBytoken(user?.email))
   }, [])
 
+  const linkpic = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/'
+
   return (
     <IonPage>
       <IonContent fullscreen>
         <div className="container mx-auto p-5">
           <div className="flex justify-center mb-5 mt-8">
-                <div className="w-40 h-40 blur-lg rounded-full bg-gradient-to-r from-pccp-light-orange to-pccp-blue grid place-items-center">
-                <img className="object-cover w-32 h-32 rounded-full inset-0" src="http://placekitten.com/g/200/301" alt="Profile image"/>
-        </div>
+              <div className="w-40 h-40 blur-lg rounded-full bg-gradient-to-r from-pccp-light-orange to-pccp-blue grid place-items-center">
+                <img className="object-cover w-32 h-32 rounded-full inset-0" src={ userData.user.img_path ?
+                  linkpic+userData.user.img_path+".jpg" : blank
+                  }/>
+              </div>
           </div>
           <div className="text-center text-lg font-bold">
             {

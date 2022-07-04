@@ -1,5 +1,5 @@
-import { IonPage, IonContent, IonCheckbox, IonItem, IonLabel, IonImg } from "@ionic/react";
-import React, { useState, useContext } from "react";
+import { IonPage, IonContent, useIonAlert } from "@ionic/react";
+import React, { useState } from "react";
 import { auth } from "../Firebase/firebase";
 import { useDispatch } from "react-redux";
 import axios from "axios";
@@ -13,18 +13,40 @@ import pic from '../assets/logo.png'
 const LoginPage: React.FC = () => {
     const dispatch = useDispatch()
     const history = useHistory()
+    const [present] = useIonAlert()
     const [login, setLogin] = useState({
       email: '',
       password: ''
     })
+    const [validate, setValidate] = useState({
+      email: false,
+      password: false
+    })
 
-    const replace = () => {
-      history.replace('/home')
+    const replace = (path: string) => {
+      history.replace(path)
+    }
+
+    const errorAlert = () => {
+      present({
+        header: 'Sign in error',
+        message: 'email or password has incorrect please check again',
+        buttons: [
+          'OK',
+        ],
+      })
     }
 
     const onChangeInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
       let newLogin: any = { ...login };
+      let newValidate: any = {...validate}
       newLogin[event.target.name] = event.target.value;
+      if (event.target.value === "") {
+        newValidate[event.target.name] = true
+      } else {
+        newValidate[event.target.name] = false
+      }
+      setValidate(newValidate)
       setLogin(newLogin);
     };
 
@@ -52,7 +74,7 @@ const LoginPage: React.FC = () => {
               }
               console.log(data)
               dispatch(changeData(data))
-              replace()
+              replace('/home')
             } else {
               data = {
                 tch_id: user.data.user_id,
@@ -64,30 +86,36 @@ const LoginPage: React.FC = () => {
               }
               console.log(data)
               dispatch(changeData(data))
-              replace()
+              replace('/check')
             }
             
             })
-      })} catch (error) {
-          console.log(error)
-      }
+      }).catch((err) => {
+        errorAlert()
+      })
+    } 
+      catch (error) {
+          errorAlert()
+    }
     
   }
 
   return (
     <IonPage>
       <IonContent>
-        <div className="p-8 mt-3 grid justify-items-center">
-          <img src={pic} className="w-2/3 mb-3" />
+        <div className="p-8 grid justify-items-center bg-gradient-to-tr from-pccp-light-orange to-pccp-light-blue">
+          <img src={pic} className="w-2/3 mb-3 mt-3" />
           <h1 className="text-center font-bold text-2xl mb-2">PCSHSP SAMA</h1>
           <h3 className="text-center font-bold mb-8">Student Activity Mobile Application</h3>
             <form onSubmit={e => {handleLogin(e)}} className="w-full">
-              <div className="block p-6 rounded-lg shadow-lg bg-pccp-light-blue">
-              <div className="form-group mb-6">
-                <FloatingInput label="Email" type="text" name="email" onChangeHandler={onChangeInputHandler}></FloatingInput>
+              <div className="block p-6 rounded-lg shadow-lg bg-white">
+              <div className="mb-6">
+                <FloatingInput label="Email" type="text" name="email" onChangeHandler={onChangeInputHandler} err={validate.email}></FloatingInput>
+                {validate.email && <label className="text-red-400 text-xs">please fill email</label>}
               </div>
-              <div className="form-group mb-6">
-                <FloatingInput label="Password" type="password" name="password" onChangeHandler={onChangeInputHandler}></FloatingInput>
+              <div className="mb-6">
+                <FloatingInput label="Password" type="password" name="password" onChangeHandler={onChangeInputHandler} err={validate.password}></FloatingInput>
+                {validate.password && <label className="text-red-400 text-xs">please fill password</label>}
               </div>
               <div className="flex justify-between mb-6">
                 <a
@@ -119,17 +147,15 @@ const LoginPage: React.FC = () => {
               >
                 Sign in
               </button>
-              <p className="text-gray-800 mt-6 text-center">
+              <div className="text-gray-800 mt-6 text-center">
                 Not a member?{" "}
                 <a
                   className="text-pccp-orange transition duration-200 ease-in-out"
-                  href="/signup"
+                  onClick={() => replace('/signup')}
                 >
                   Register
                 </a>
-              </p>
-
-              
+              </div>
             </form>
         </div>
       </IonContent>

@@ -69,11 +69,13 @@ const LoginPage: React.FC = () => {
                 classroom: user.data.std_classroom,
                 number: user.data.std_number,
                 dormitory: user.data.std_dormitory,
+                email: user.data.std_email,
                 img_path: user.data.img_path,
                 flag: user.data.flag
               }
               console.log(data)
               dispatch(changeData(data))
+              localStorage.setItem("userEmail", data.email)
               replace('/home')
             } else {
               data = {
@@ -86,6 +88,7 @@ const LoginPage: React.FC = () => {
               }
               console.log(data)
               dispatch(changeData(data))
+              localStorage.setItem("userEmail", data.email)
               replace('/check')
             }
             
@@ -102,7 +105,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent>
+      <IonContent fullscreen>
         <div className="p-8 grid justify-items-center bg-gradient-to-tr from-pccp-light-orange to-pccp-light-blue">
           <img src={pic} className="w-2/3 mb-3 mt-3" />
           <h1 className="text-center font-bold text-2xl mb-2">PCSHSP SAMA</h1>

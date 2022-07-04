@@ -1,4 +1,4 @@
-import { IonPage, IonContent, IonHeader, IonToolbar, IonIcon, IonSelect, IonSelectOption, useIonViewDidEnter } from "@ionic/react";
+import { IonPage, IonContent, IonHeader, IonToolbar, IonIcon, IonSelect, IonSelectOption, useIonAlert } from "@ionic/react";
 import { chevronBack } from "ionicons/icons";
 import { useIonRouter } from "@ionic/react";
 import classroom from "../../redux/classroom";
@@ -6,17 +6,16 @@ import ListComponent from "../../components/ListComponent";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import StateSvg from '../../components/assets/stats-chart.svg';
-import { File } from '@awesome-cordova-plugins/file'
-import { HTTP } from '@awesome-cordova-plugins/http'
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 const SearchPage: React.FC = () => {
     const router = useIonRouter()
-    const http = HTTP
     const navigateBack = () => {
         if (router.canGoBack()) {
           router.goBack();
         }
     };
+    const [present] = useIonAlert();
     const [room, setRoom] = useState<string>()
     const [loading, setLoading] = useState(false)
     const [listName, setListName] = useState<Array<any>>()
@@ -27,6 +26,25 @@ const SearchPage: React.FC = () => {
             setListName(res.data)
         })
     }
+
+    const writeSecretFile = async (filename: string, data: string) => {
+      await Filesystem.writeFile({
+        path: filename,
+        data: data,
+        directory: Directory.Documents,
+        encoding: Encoding.UTF8,
+      });
+    }
+
+    const readSecretFile = async (filename: string) => {
+      const contents = await Filesystem.readFile({
+        path: filename,
+        directory: Directory.Documents,
+        encoding: Encoding.UTF8,
+      });
+    
+      console.log('secrets:', contents);
+    };
 
     const getClassPoints = async () => {
       if (!loading) {
@@ -39,17 +57,20 @@ const SearchPage: React.FC = () => {
     }
 
     const download = async () => {
-      console.log("download")
+      //console.log("download")
       if (room) {
-        const url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/report/';
+        const url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/report/download.php';
         const filename = room[0]+"-"+room[2]+"-report.csv"
         console.log(filename)
-        await http.downloadFile(url+filename, {}, {}, File.dataDirectory+"/"+filename)
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((err) => {
-          console.log(err)
+        await axios.post(url, JSON.stringify({filename: filename})).then((res) => {
+          //console.log(res.data)              
+          writeSecretFile(filename, res.data as string)
+          present({
+            message: 'ดาวน์โหลดเสร็จสิ้น คุณสามารถดูรายละเอียดได้ที่ Documents Folder',
+            buttons: [
+              { text: 'OK'},
+            ],
+          })
         })
       }
     }

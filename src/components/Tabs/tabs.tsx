@@ -18,17 +18,26 @@ const Tabs: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
-    dispatch(fetchUserBytoken(user?.email))
+    dispatch(fetchUserBytoken(localStorage.getItem("userEmail")))
   }, [])
 
-  return (
-    <IonReactRouter>
-      { user ? (Number(userData.user.flag) === 0 ? <StudentTabs></StudentTabs> : <TeacherTabs></TeacherTabs>)
-         : window.location.pathname == "/signup" ? 
-         <SignupPage></SignupPage> : <LoginPage></LoginPage>
-      }  
-    </IonReactRouter>
-  );
+  const selecttab = () => {
+    if (Number(userData.user.flag) === 0) {
+      return <StudentTabs></StudentTabs>
+    } else if ((Number(userData.user.flag) === 2)) {
+      return <TeacherTabs></TeacherTabs>
+    }
+  }
+
+    return (
+      <IonReactRouter>
+        { user ?  selecttab()
+           : window.location.pathname == "/signup" ? 
+           <SignupPage></SignupPage> : <LoginPage></LoginPage>
+        }  
+      </IonReactRouter>
+    );
+  
 };
 
 export default Tabs;

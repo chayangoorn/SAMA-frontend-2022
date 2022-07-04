@@ -45,6 +45,7 @@ export interface StudentUser {
     classroom: string
     number: number
     dormitory: "เขียว" | "ม่วง" | "ฟ้า" | "ชมพู" | "เหลือง" | "น้ำตาล"
+    email: string
     img_path: string
     flag: number
 }

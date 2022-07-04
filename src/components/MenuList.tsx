@@ -19,6 +19,7 @@ const MenuList: React.FC = () => {
             </div>
             <div className="flex border-b-2 pb-1" onClick={() => {
                 auth.signOut()
+                localStorage.removeItem("userEmail")
                 router.push('/login')
                 }}>
                 <div className="ml-3 text-xl"><IonIcon src={logOut}></IonIcon></div>

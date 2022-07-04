@@ -51,6 +51,7 @@ const ResultPage: React.FC = () => {
             number: res.data.std_number,
             dormitory: res.data.std_dormitory,
             img_path: res.data.img_path,
+            email: res.data.std_email,
             flag: res.data.flag
         }
         setUser(userData)

@@ -27,6 +27,7 @@ export const fetchUserBytoken = createAsyncThunk<StudentUser | TeacherUser,strin
                     number: respones.data['std_number'],
                     dormitory: respones.data['std_dormitory'],
                     img_path: respones.data['img_path'],
+                    email: respones.data['std_email'],
                     flag: respones.data['flag'] 
                 } 
             } else {

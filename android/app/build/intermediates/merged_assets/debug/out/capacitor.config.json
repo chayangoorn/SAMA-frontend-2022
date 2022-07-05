@@ -1,0 +1,6 @@
+{
+	"appId": "app.pccp.sama",
+	"appName": "SAMA",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

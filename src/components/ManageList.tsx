@@ -37,8 +37,10 @@ const ManageList: React.FC<ManageListProps> = ({
 
   return (
     <div className="mb-2 w-full grid gap-y-2">
-      <div className={`bg-pccp-light-orange p-3 gap-x-3 rounded-lg grid grid-cols-6 flex items-stretch ${status[data.flag][1]}`}>
+      <div className={`bg-pccp-light-orange p-3 gap-x-3 rounded-lg grid grid-cols-6 flex items-stretch 
+      ${select ? "border-2 border-black" : status[data.flag][1]}`}>
         <div className="self-center text-center" onClick={e => {
+            if (Number(data.flag) === 0 || Number(data.flag) === 4)
             setSelect(!select) 
             onClickSelect(e, data, !select, index)
             }}>
@@ -52,7 +54,7 @@ const ManageList: React.FC<ManageListProps> = ({
           <div className="truncate inline-block text-base">ครั้งที่ {index+1}</div>
         </div>
         <div className="text-right self-center" onClick={(e) => pushNavigate(`edit/${data.act_type}/${data.act_id}`)}>
-          <IonIcon src={chevronForward} size="large" color={status[data.flag][0]}></IonIcon>
+          <IonIcon src={chevronForward} size="large" color={select ? "black" : status[data.flag][0]}></IonIcon>
         </div>
       </div>
     </div>

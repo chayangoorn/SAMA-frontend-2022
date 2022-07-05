@@ -11,14 +11,21 @@ import { AuthContext } from "../../Firebase/AuthContext";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { fetchUserBytoken } from "../../redux/features/UserDataSlice";
+import { Storage } from '@capacitor/storage';
 
 const Tabs: React.FC = () => {
   const user = useContext(AuthContext);
   const userData = useSelector((state: RootState) => state.userData)
   const dispatch = useDispatch<AppDispatch>()
+  const checkName = async () => {
+    const { value } = await Storage.get({ key: 'userEmail' })
+    return value as string
+  };
 
   useEffect(() => {
-    dispatch(fetchUserBytoken(localStorage.getItem("userEmail")))
+    checkName().then((email) => {
+      dispatch(fetchUserBytoken(email))
+    })
   }, [])
 
   const selecttab = () => {

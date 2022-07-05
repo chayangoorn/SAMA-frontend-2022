@@ -9,6 +9,7 @@ import { useHistory } from "react-router";
 import SignupPage from "./student/Signup";
 import FloatingInput from "../components/FloatingInput";
 import pic from '../assets/logo.png'
+import { Storage } from '@capacitor/storage';
 
 const LoginPage: React.FC = () => {
     const dispatch = useDispatch()
@@ -26,6 +27,13 @@ const LoginPage: React.FC = () => {
     const replace = (path: string) => {
       history.replace(path)
     }
+
+    const setEmail = async (email: string) => {
+      await Storage.set({
+        key: 'userEmail',
+        value: email,
+      });
+    };
 
     const errorAlert = () => {
       present({
@@ -75,7 +83,7 @@ const LoginPage: React.FC = () => {
               }
               console.log(data)
               dispatch(changeData(data))
-              localStorage.setItem("userEmail", data.email)
+              setEmail(data.email)
               replace('/home')
             } else {
               data = {
@@ -88,7 +96,7 @@ const LoginPage: React.FC = () => {
               }
               console.log(data)
               dispatch(changeData(data))
-              localStorage.setItem("userEmail", data.email)
+              setEmail(data.email)
               replace('/check')
             }
             

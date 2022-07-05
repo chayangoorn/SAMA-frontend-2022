@@ -1,0 +1,113 @@
+org/apache/cordova/file/InvalidModificationException.java
+ org.apache.cordova.file.InvalidModificationException
+com/silkimen/cordovahttp/CordovaHttpResponse.java
+ com.silkimen.cordovahttp.CordovaHttpResponse
+org/apache/cordova/file/NoModificationAllowedException.java
+ org.apache.cordova.file.NoModificationAllowedException
+org/apache/cordova/file/FileUtils.java
+ org.apache.cordova.file.FileUtils
+ org.apache.cordova.file.FileUtils$1
+ org.apache.cordova.file.FileUtils$10
+ org.apache.cordova.file.FileUtils$11
+ org.apache.cordova.file.FileUtils$12
+ org.apache.cordova.file.FileUtils$13
+ org.apache.cordova.file.FileUtils$14
+ org.apache.cordova.file.FileUtils$15
+ org.apache.cordova.file.FileUtils$16
+ org.apache.cordova.file.FileUtils$17
+ org.apache.cordova.file.FileUtils$18
+ org.apache.cordova.file.FileUtils$19
+ org.apache.cordova.file.FileUtils$2
+ org.apache.cordova.file.FileUtils$20
+ org.apache.cordova.file.FileUtils$21
+ org.apache.cordova.file.FileUtils$22
+ org.apache.cordova.file.FileUtils$23
+ org.apache.cordova.file.FileUtils$24
+ org.apache.cordova.file.FileUtils$25
+ org.apache.cordova.file.FileUtils$26
+ org.apache.cordova.file.FileUtils$27
+ org.apache.cordova.file.FileUtils$28
+ org.apache.cordova.file.FileUtils$29
+ org.apache.cordova.file.FileUtils$3
+ org.apache.cordova.file.FileUtils$30
+ org.apache.cordova.file.FileUtils$4
+ org.apache.cordova.file.FileUtils$5
+ org.apache.cordova.file.FileUtils$6
+ org.apache.cordova.file.FileUtils$7
+ org.apache.cordova.file.FileUtils$8
+ org.apache.cordova.file.FileUtils$9
+ org.apache.cordova.file.FileUtils$FileOp
+org/apache/cordova/file/ContentFilesystem.java
+ org.apache.cordova.file.ContentFilesystem
+com/silkimen/http/KeyChainKeyManager.java
+ com.silkimen.http.KeyChainKeyManager
+com/silkimen/http/TLSConfiguration.java
+ com.silkimen.http.TLSConfiguration
+com/silkimen/cordovahttp/CordovaObservableCallbackContext.java
+ com.silkimen.cordovahttp.CordovaObservableCallbackContext
+com/silkimen/cordovahttp/CordovaHttpOperation.java
+ com.silkimen.cordovahttp.CordovaHttpOperation
+org/apache/cordova/file/PendingRequests.java
+ org.apache.cordova.file.PendingRequests
+ org.apache.cordova.file.PendingRequests$1
+ org.apache.cordova.file.PendingRequests$Request
+org/apache/cordova/file/FileExistsException.java
+ org.apache.cordova.file.FileExistsException
+com/silkimen/http/HttpRequest.java
+ com.silkimen.http.HttpRequest
+ com.silkimen.http.HttpRequest$1
+ com.silkimen.http.HttpRequest$2
+ com.silkimen.http.HttpRequest$3
+ com.silkimen.http.HttpRequest$4
+ com.silkimen.http.HttpRequest$5
+ com.silkimen.http.HttpRequest$6
+ com.silkimen.http.HttpRequest$7
+ com.silkimen.http.HttpRequest$8
+ com.silkimen.http.HttpRequest$Base64
+ com.silkimen.http.HttpRequest$CloseOperation
+ com.silkimen.http.HttpRequest$ConnectionFactory
+ com.silkimen.http.HttpRequest$ConnectionFactory$1
+ com.silkimen.http.HttpRequest$FlushOperation
+ com.silkimen.http.HttpRequest$HttpRequestException
+ com.silkimen.http.HttpRequest$Operation
+ com.silkimen.http.HttpRequest$RequestOutputStream
+ com.silkimen.http.HttpRequest$UploadProgress
+ com.silkimen.http.HttpRequest$UploadProgress$1
+com/silkimen/http/TLSSocketFactory.java
+ com.silkimen.http.TLSSocketFactory
+com/silkimen/cordovahttp/CordovaClientAuth.java
+ com.silkimen.cordovahttp.CordovaClientAuth
+org/apache/cordova/file/EncodingException.java
+ org.apache.cordova.file.EncodingException
+com/silkimen/http/HttpBodyDecoder.java
+ com.silkimen.http.HttpBodyDecoder
+org/apache/cordova/file/AssetFilesystem.java
+ org.apache.cordova.file.AssetFilesystem
+com/silkimen/cordovahttp/CordovaHttpPlugin.java
+ com.silkimen.cordovahttp.CordovaHttpPlugin
+com/silkimen/cordovahttp/CordovaHttpDownload.java
+ com.silkimen.cordovahttp.CordovaHttpDownload
+com/silkimen/cordovahttp/CordovaHttpBase.java
+ com.silkimen.cordovahttp.CordovaHttpBase
+org/apache/cordova/file/Filesystem.java
+ org.apache.cordova.file.Filesystem
+ org.apache.cordova.file.Filesystem$LimitedInputStream
+ org.apache.cordova.file.Filesystem$ReadFileCallback
+org/apache/cordova/file/TypeMismatchException.java
+ org.apache.cordova.file.TypeMismatchException
+com/silkimen/cordovahttp/CordovaHttpUpload.java
+ com.silkimen.cordovahttp.CordovaHttpUpload
+org/apache/cordova/file/DirectoryManager.java
+ org.apache.cordova.file.DirectoryManager
+org/apache/cordova/file/LocalFilesystemURL.java
+ org.apache.cordova.file.LocalFilesystemURL
+com/silkimen/http/JsonUtils.java
+ com.silkimen.http.JsonUtils
+org/apache/cordova/file/LocalFilesystem.java
+ org.apache.cordova.file.LocalFilesystem
+capacitor/android/plugins/BuildConfig.java
+ capacitor.android.plugins.BuildConfig
+com/silkimen/cordovahttp/CordovaServerTrust.java
+ com.silkimen.cordovahttp.CordovaServerTrust
+ com.silkimen.cordovahttp.CordovaServerTrust$1
+ com.silkimen.cordovahttp.CordovaServerTrust$2

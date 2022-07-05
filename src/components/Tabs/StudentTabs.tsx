@@ -80,6 +80,8 @@ const StudentTabs: React.FC = () => {
         <Route path="/send/:id" component={SelectTeacherPage} exact />
         <Route path="/manage/edit/:form/:id" component={FormPage} exact />
         <Route path="/signup" component={SignupPage} exact />
+        <Route path="/home/:form/:id" component={FormPage} exact />
+        <Route path="/home/:form/send/:id" component={SelectTeacherPage} exact />
         {tabs.map((tab, index) => {
           return (
             <Route

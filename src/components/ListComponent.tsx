@@ -30,15 +30,16 @@ const ListComponent: React.FC<ListComponentProps> = ({
                 {student ?
                     <div className="self-center">
                     {img == null || img == "" ? <img src={blank} className="rounded-full w-8 h-8"/> 
-                    : <img src={linkpic+img+".jpg"} className="rounded-full w-8 h-8"/> }
-                    </div> : (data!=undefined && Number(data?.flag) === 3 ? 
-                    <div className="self-center col-span-1">
-                        <IonIcon src={checkmarkOutline}></IonIcon>
-                    </div>
-                     : 
-                     <div className="self-center col-span-1">
-                        <IonIcon src={removeCircleOutline}></IonIcon>
-                    </div>
+                    : <img src={linkpic+img} className="rounded-full w-8 h-8"/> }
+                    </div> : (data!=undefined ? (
+                        Number(data?.flag) === 3 ? 
+                            <div className="self-center col-span-1">
+                                <IonIcon src={checkmarkOutline}></IonIcon>
+                            </div> : 
+                            <div className="self-center col-span-1">
+                                <IonIcon src={removeCircleOutline}></IonIcon>
+                            </div>
+                    ) : null
                     )
                 }
                 
@@ -46,8 +47,8 @@ const ListComponent: React.FC<ListComponentProps> = ({
                     { label && <p className="truncate">{label}</p>}
                     { data != undefined && 
                         <div>
-                            <p className="truncate">{"["+data.act_updated+"]"}</p>
-                            <p className="truncate">{data.act_details}</p>
+                            <p className="truncate text-xs">{"[ "+data.act_updated+" ]"}</p>
+                            <p className="truncate -mt-1.5">{data.act_details}</p>
                         </div>
                     }
                 </div>

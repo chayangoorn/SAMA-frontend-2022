@@ -20,6 +20,7 @@ export const fetchUserBytoken = createAsyncThunk<StudentUser | TeacherUser,strin
             let data: StudentUser | TeacherUser
             if (respones.data['flag'] === '0') {
                 data = {
+                    user_id: respones.data['user_id'],
                     std_id: respones.data['std_ID'],
                     firstname: respones.data['std_firstname'],
                     lastname: respones.data['std_lastname'],
@@ -32,7 +33,7 @@ export const fetchUserBytoken = createAsyncThunk<StudentUser | TeacherUser,strin
                 } 
             } else {
                 data = {
-                    tch_id: respones.data['user_id'],
+                    user_id: respones.data['user_id'],
                     firstname: respones.data['tch_firstname'],
                     lastname: respones.data['tch_lastname'],
                     img_path: respones.data['tch_img'],

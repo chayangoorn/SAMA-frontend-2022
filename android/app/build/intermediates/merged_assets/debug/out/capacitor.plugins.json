@@ -4,6 +4,10 @@
 		"classpath": "com.capacitorjs.plugins.app.AppPlugin"
 	},
 	{
+		"pkg": "@capacitor/camera",
+		"classpath": "com.capacitorjs.plugins.camera.CameraPlugin"
+	},
+	{
 		"pkg": "@capacitor/filesystem",
 		"classpath": "com.capacitorjs.plugins.filesystem.FilesystemPlugin"
 	},
@@ -18,5 +22,9 @@
 	{
 		"pkg": "@capacitor/status-bar",
 		"classpath": "com.capacitorjs.plugins.statusbar.StatusBarPlugin"
+	},
+	{
+		"pkg": "@capacitor/storage",
+		"classpath": "com.capacitorjs.plugins.storage.StoragePlugin"
 	}
 ]

@@ -78,7 +78,7 @@ const SelectTeacherPage: React.FC = () => {
                 {teachers?.map((teacher, index) => {
                     return <div className="h-12 grid grid-cols-6 flex items-center gap-x-3" key={index}>
                         <div className="col-span-1">
-                            {teacher.tch_img? <img src={linkpic+teacher.tch_img+'.jpg'} className="w-8 h-8 rounded-full"/>
+                            {teacher.tch_img? <img src={linkpic+teacher.tch_img} className="w-8 h-8 rounded-full"/>
                             : 
                             <img src={blank} className="w-8 h-8 rounded-full"/> }
                         </div>

@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
               <div className="relative pb-2/3 sm:pt-1/3 h-24">
               <img
                 src={
-                  userData.user.img_path ? linkpic+userData.user.img_path+".jpg" : blank
+                  userData.user.img_path ? linkpic+userData.user.img_path : blank
                 }
                 className="absolute inset-0 w-full h-full object-cover rounded-md"
               />
@@ -60,10 +60,13 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className="text-lg">History Checked</div>
-          {actData?.data.filter((act) => Number(act.flag) === 3 || Number(act.flag) === 4).slice(0,5)
+          <div className="mb-5">
+          {actData?.data.filter((act) => Number(act.flag) === 3 || Number(act.flag) === 4).length > 0 ? 
+          actData?.data.filter((act) => Number(act.flag) === 3 || Number(act.flag) === 4).slice(0,5)
           .map((act,index) => {
             return <ListComponent data={act} key={index} navigate={() => navigate('/home/'+act.act_type+"/"+act.act_id)}></ListComponent>
-          })}
+          }) : <p className="text-center mt-10">No Result</p>}
+          </div>
         </div>
       </IonContent>
     </IonPage>

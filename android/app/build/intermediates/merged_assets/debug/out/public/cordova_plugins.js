@@ -10,6 +10,14 @@
         ]
         },
       {
+          "id": "cordova-plugin-file-opener2.FileOpener2",
+          "file": "plugins/cordova-plugin-file-opener2/www/plugins.FileOpener2.js",
+          "pluginId": "cordova-plugin-file-opener2",
+        "clobbers": [
+          "cordova.plugins.fileOpener2"
+        ]
+        },
+      {
           "id": "cordova-plugin-file.DirectoryEntry",
           "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
           "pluginId": "cordova-plugin-file",
@@ -71,6 +79,22 @@
           "pluginId": "cordova-plugin-file",
         "clobbers": [
           "window.FileSystem"
+        ]
+        },
+      {
+          "id": "cordova-plugin-file-transfer.FileTransfer",
+          "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+          "pluginId": "cordova-plugin-file-transfer",
+        "clobbers": [
+          "window.FileTransfer"
+        ]
+        },
+      {
+          "id": "cordova-plugin-file-transfer.FileTransferError",
+          "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+          "pluginId": "cordova-plugin-file-transfer",
+        "clobbers": [
+          "window.FileTransferError"
         ]
         },
       {
@@ -260,7 +284,9 @@
     // TOP OF METADATA
     {
       "cordova-plugin-advanced-http": "3.3.1",
-      "cordova-plugin-file": "7.0.0"
+      "cordova-plugin-file": "7.0.0",
+      "cordova-plugin-file-opener2": "3.0.5",
+      "cordova-plugin-file-transfer": "1.7.1"
     };
     // BOTTOM OF METADATA
     });

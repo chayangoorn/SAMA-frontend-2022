@@ -1,5 +1,6 @@
-import { IonApp, setupIonicReact, IonRouterOutlet } from "@ionic/react";
+import { IonApp, setupIonicReact } from "@ionic/react";
 import Tabs from "./components/Tabs/tabs";
+import { App } from '@capacitor/app'
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -24,7 +25,14 @@ import AuthProvider from "./Firebase/AuthProvider";
 
 setupIonicReact();
 
-const App: React.FC = () => {
+const AppIonic: React.FC = () => {
+
+  App.addListener('backButton', (ev) => {
+    if(['/home', '/manage', '/record', '/achieve', '/profile', '/check', '/activities'].includes(window.location.pathname)) {
+      App.exitApp()
+    }
+  });
+
   return (
     <IonApp>
       <AuthProvider>
@@ -34,4 +42,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default AppIonic;

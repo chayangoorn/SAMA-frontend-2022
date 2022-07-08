@@ -7,6 +7,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import StateSvg from '../../components/assets/stats-chart.svg';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import { FileOpener } from '@awesome-cordova-plugins/file-opener'
 
 const SearchPage: React.FC = () => {
     const router = useIonRouter()
@@ -28,22 +29,36 @@ const SearchPage: React.FC = () => {
     }
 
     const writeSecretFile = async (filename: string, data: string) => {
-      await Filesystem.writeFile({
-        path: filename,
-        data: data,
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-      });
+      try {
+        await Filesystem.mkdir({
+          path: "report/",
+          directory: Directory.Documents
+        })
+      } catch {
+        try {
+          await deleteSecretFile(filename)
+          return await Filesystem.writeFile({
+            path: 'report/'+filename,
+            data: data,
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+          });
+        } catch {
+          return await Filesystem.writeFile({
+            path: 'report/'+filename,
+            data: data,
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+          });
+        }
+      }
     }
 
-    const readSecretFile = async (filename: string) => {
-      const contents = await Filesystem.readFile({
-        path: filename,
+    const deleteSecretFile = async (filename: string) => {
+      await Filesystem.deleteFile({
+        path: "report/"+filename,
         directory: Directory.Documents,
-        encoding: Encoding.UTF8,
       });
-    
-      console.log('secrets:', contents);
     };
 
     const getClassPoints = async () => {
@@ -62,9 +77,10 @@ const SearchPage: React.FC = () => {
         const url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/report/download.php';
         const filename = room[0]+"-"+room[2]+"-report.csv"
         console.log(filename)
-        await axios.post(url, JSON.stringify({filename: filename})).then((res) => {
+        await axios.post(url, JSON.stringify({filename: filename})).then( async (res) => {
           //console.log(res.data)              
-          writeSecretFile(filename, res.data as string)
+          const file = await writeSecretFile(filename, res.data as string)
+          FileOpener.open(file!.uri, "text/csv")
           present({
             message: 'ดาวน์โหลดเสร็จสิ้น คุณสามารถดูรายละเอียดได้ที่ Documents Folder',
             buttons: [

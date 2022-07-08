@@ -67,10 +67,11 @@ const LoginPage: React.FC = () => {
             email: res.user?.email
           }
           axios.post('http://www.zp11489.tld.122.155.167.85.no-domain.name/www/login.php', JSON.stringify(loginData))
-          .then(user => {
+          .then( async user => {
             let data: StudentUser | TeacherUser
             if (Number(user.data.flag) === 0) {
               data = {
+                user_id: user.data.user_id,
                 std_id: user.data.std_ID,
                 firstname: user.data.std_firstname,
                 lastname: user.data.std_lastname,
@@ -83,11 +84,11 @@ const LoginPage: React.FC = () => {
               }
               console.log(data)
               dispatch(changeData(data))
-              setEmail(data.email)
+              await setEmail(data.email)
               replace('/home')
             } else {
               data = {
-                tch_id: user.data.user_id,
+                user_id: user.data.user_id,
                 firstname: user.data.tch_firstname,
                 lastname: user.data.tch_lastname,
                 img_path: user.data.img_path,
@@ -96,7 +97,7 @@ const LoginPage: React.FC = () => {
               }
               console.log(data)
               dispatch(changeData(data))
-              setEmail(data.email)
+              await setEmail(data.email)
               replace('/check')
             }
             
@@ -111,13 +112,42 @@ const LoginPage: React.FC = () => {
     
   }
 
+  const sendResetPassword = async () => {
+    present({
+      header: "Forget Password ?",
+      message: "กรุณาใส่อีเมลที่ต้องการเปลี่ยนรหัสผ่าน",
+      inputs: [{
+        type: 'email',
+        name: 'email',
+        placeholder: 'Email'
+      }],
+      buttons: [{
+        text: "OK", handler: async (alertData) => {
+          await auth.sendPasswordResetEmail(alertData['email'])
+          .then(() => {
+             present({
+              message: "กรุณาตรวจสอบอีเมลของคุณเพื่อเปลี่ยนรหัสผ่านใหม่",
+              buttons: [{text: "OK", handler: async () => {
+                  await Storage.remove({ key: 'userEmail' });
+                  await auth.signOut()
+              }}]
+            }) 
+          })
+        }
+      }]
+    })
+
+        
+}
+
   return (
     <IonPage>
-      <IonContent fullscreen>
-        <div className="p-8 grid justify-items-center bg-gradient-to-tr from-pccp-light-orange to-pccp-light-blue">
-          <img src={pic} className="w-2/3 mb-3 mt-3" />
-          <h1 className="text-center font-bold text-2xl mb-2">PCSHSP SAMA</h1>
-          <h3 className="text-center font-bold mb-8">Student Activity Mobile Application</h3>
+      <IonContent>
+        <div className="p-8 grid justify-items-center bg-gradient-to-tr from-pccp-light-orange to-pccp-light-blue min-h-full max-h-max">
+          <img src={pic} className="w-2/3 mt-3 mb-3" />
+          <div className="text-center font-bold text-4xl mb-2">SAMA</div>
+          <div className="text-center font-bold text-lg">Student Activity Mobile Application</div>
+          <div className="text-center mb-8 text-xs">Princess Chulabhorn Science High School Pathumthani</div>
             <form onSubmit={e => {handleLogin(e)}} className="w-full">
               <div className="block p-6 rounded-lg shadow-lg bg-white">
               <div className="mb-6">
@@ -130,7 +160,7 @@ const LoginPage: React.FC = () => {
               </div>
               <div className="flex justify-between mb-6">
                 <a
-                  href="#!"
+                  onClick={sendResetPassword}
                   className="text-pccp-orange transition duration-200 ease-in-out"
                 >
                   Forgot password?
@@ -162,7 +192,7 @@ const LoginPage: React.FC = () => {
                 Not a member?{" "}
                 <a
                   className="text-pccp-orange transition duration-200 ease-in-out"
-                  onClick={() => replace('/signup')}
+                  href="/signup"
                 >
                   Register
                 </a>

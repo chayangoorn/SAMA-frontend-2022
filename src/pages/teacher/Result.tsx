@@ -44,6 +44,7 @@ const ResultPage: React.FC = () => {
     await axios.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/login.php", JSON.stringify({std_ID: id}))
     .then((res) => {
         const userData: StudentUser = {
+            user_id: res.data.user_id,
             std_id: res.data.std_ID,
             firstname: res.data.std_firstname,
             lastname: res.data.std_lastname,
@@ -74,10 +75,10 @@ const ResultPage: React.FC = () => {
         </div>
       </IonToolbar>
       <IonContent>
-        <div className="w-full mt-12 flex">
+        <div className="w-full mt-14 flex">
           <div className="h-20 w-full bg-pccp-light-orange flex">
             <img src={ user?.img_path == null || user?.img_path == "" ?
-                blank : linkpic+user.img_path+".jpg"
+                blank : linkpic+user.img_path
             } className="w-40 h-40 rounded-full border-white border-8 -mt-10 -ml-10"/>
             <div>
               <p className="pt-4 ml-5 font-bold text-lg">{user?.firstname} {user?.lastname}</p>
@@ -85,10 +86,10 @@ const ResultPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="mx-auto container p-5 px-8 mt-6">
+        <div className="mx-auto container p-5 px-8 mt-8">
             <h1 className="text-xl font-bold mb-2 mt-2">สถิติการทำกิจกรรม</h1>
             {['01', '02', '03', '11', '12', '13'].map((type, index) => {
-               return <ListComponent key={index} label={activityType[type]} point={achieve.points[type]} type={labels[index]}></ListComponent>
+               return <ListComponent key={index} label={activityType[type]} point={achieve.points[type]} type={labels[index]} student={false}></ListComponent>
             })}
             <h1 className="text-xl font-bold my-5">ดูรายละเอียดกิจกรรม</h1>
             {['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13'].map((value,index) => {

@@ -39,6 +39,7 @@ export interface ValidateAct {
 }
 
 export interface StudentUser {
+    user_id: string
     std_id: string
     firstname: string
     lastname: string
@@ -51,7 +52,7 @@ export interface StudentUser {
 }
 
 export interface TeacherUser {
-    tch_id: string
+    user_id: string
     firstname: string
     lastname: string
     img_path: string

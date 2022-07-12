@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d68737d4.css",
-    "main.js": "/static/js/main.c92a8737.js",
+    "main.js": "/static/js/main.70d0c3fa.js",
     "static/js/630.a624738c.chunk.js": "/static/js/630.a624738c.chunk.js",
     "static/js/738.8740d2e6.chunk.js": "/static/js/738.8740d2e6.chunk.js",
     "static/js/372.88bc6334.chunk.js": "/static/js/372.88bc6334.chunk.js",
@@ -25,20 +25,20 @@
     "static/js/868.f4d1b6a1.chunk.js": "/static/js/868.f4d1b6a1.chunk.js",
     "static/js/377.9b2f343f.chunk.js": "/static/js/377.9b2f343f.chunk.js",
     "static/media/logo.png": "/static/media/logo.f365a1fd15a511cbeb92.png",
-    "static/media/home.svg": "/static/media/home.5256f9b148ce7af49baf0dd578fa2923.svg",
-    "static/media/bookmarks.svg": "/static/media/bookmarks.51a37226a6950a29e6f1e99333b8369c.svg",
+    "static/media/home.svg": "/static/media/home.cad14e3a669cfcbc35bbd994036c2c20.svg",
+    "static/media/bookmarks.svg": "/static/media/bookmarks.a2f420ec8039e583a2e9dcc438bacb7d.svg",
     "static/media/documents.svg": "/static/media/documents.11440e5b01f80884a329576b01dcec46.svg",
     "static/media/stats-chart.svg": "/static/media/stats-chart.b8b06cdd1ac9e1c6101458a19f152ecd.svg",
-    "static/media/person.svg": "/static/media/person.8b63de21bbafb4b1de066a4564ad34b5.svg",
+    "static/media/person.svg": "/static/media/person.553eb82caf9cf155203faaa611351ab4.svg",
     "static/media/search.svg": "/static/media/search.573b4383aee788c9bb911f424003b170.svg",
-    "static/media/document-text.svg": "/static/media/document-text.c4e0c456e49b1962d0c6c6473b1090a0.svg",
-    "static/media/add-circle-outline.svg": "/static/media/add-circle-outline.c4aa717a54cb9e14171dea43dfdfacf8.svg",
+    "static/media/document-text.svg": "/static/media/document-text.286f6b3d32f9201f6b0bf9183a559044.svg",
+    "static/media/add-circle-outline.svg": "/static/media/add-circle-outline.2557972d63c3ba21d68bf6241290a6a7.svg",
     "service-worker.js": "/service-worker.js",
     "static/media/blankprofile.png": "/static/media/blankprofile.c3f945216dc12c9498dc.png",
     "static/media/Arthiti.woff2": "/static/media/Arthiti.6d75dd2074e0c1d45828.woff2",
     "index.html": "/index.html",
     "main.d68737d4.css.map": "/static/css/main.d68737d4.css.map",
-    "main.c92a8737.js.map": "/static/js/main.c92a8737.js.map",
+    "main.70d0c3fa.js.map": "/static/js/main.70d0c3fa.js.map",
     "630.a624738c.chunk.js.map": "/static/js/630.a624738c.chunk.js.map",
     "738.8740d2e6.chunk.js.map": "/static/js/738.8740d2e6.chunk.js.map",
     "372.88bc6334.chunk.js.map": "/static/js/372.88bc6334.chunk.js.map",
@@ -64,6 +64,6 @@
   },
   "entrypoints": [
     "static/css/main.d68737d4.css",
-    "static/js/main.c92a8737.js"
+    "static/js/main.70d0c3fa.js"
   ]
 }

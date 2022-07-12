@@ -42,7 +42,14 @@ const ActivitiesPage: React.FC = () => {
 
   const pushNavigate = () => {
     if (sendData.act_ids.length !== 0) {
-      router.push('/send/'+sendData.act_ids.join("&"), 'forward', 'push')
+      if (sendData.act_ids.length > 5) {
+        present({
+          message: "เลือกกิจกรรมได้สูงสุด 5 รายการเท่านั้น",
+          buttons: ["OK"]
+        })
+      } else {
+        router.push('/send/'+sendData.act_ids.join("&"), 'forward', 'push')
+      }
     } else {
       present({
         message: "กรุณาเลือกรายการที่ต้องการส่ง",

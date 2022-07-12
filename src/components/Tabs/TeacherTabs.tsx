@@ -12,7 +12,7 @@ import MenuPage from "../../pages/teacher/Menu";
 import CheckPage from "../../pages/teacher/Check";
 import ProfilePage from "../../pages/Profile";
 import SearchPage from "../../pages/teacher/Search";
-import FormPage from "../../pages/student/Form";
+import SamadetailPage from "../../pages/Samadetail";
 
 import SearchSvg from "../assets/search.svg";
 import DocumentsSvg from "../assets/documents.svg";
@@ -59,6 +59,7 @@ const TeacherTabs: React.FC = () => {
         <Route path="/search" component={SearchPage} exact/>
         <Route path="/search/:id" component={ResultPage} exact/>
         <Route path="/search/result/:form/:id" component={DetailPage} exact/>
+        <Route path="/sama" component={SamadetailPage}/>
         {tabs.map((tab, index) => {
           return (
             <Route

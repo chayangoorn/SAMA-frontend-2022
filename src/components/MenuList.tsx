@@ -101,6 +101,10 @@ const MenuList: React.FC<MenuListProps> = ({email}) => {
           })
     }
 
+    const pushNavigate = () => {
+        router.push('/sama')
+    }
+
     return (
         <div className="grid gap-y-6 w-full bg-gradient-to-r from-pccp-light-orange to-pccp-blue p-5 rounded-lg">
             <div className="flex border-b-2 pb-1" id="open-modal">
@@ -113,7 +117,7 @@ const MenuList: React.FC<MenuListProps> = ({email}) => {
                 <div className="ml-3 text-xl"><IonIcon src={lockOpen}></IonIcon></div>
                 <div className="ml-5">เปลี่ยนรหัสผ่าน</div>
             </div>
-            <div className="flex border-b-2 pb-1">
+            <div className="flex border-b-2 pb-1" onClick={pushNavigate}>
                 <div className="ml-3 text-xl"><IonIcon src={informationCircle}></IonIcon></div>
                 <div className="ml-5">เกี่ยวกับ</div>
             </div>

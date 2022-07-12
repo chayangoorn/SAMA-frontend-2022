@@ -30,6 +30,8 @@ const AppIonic: React.FC = () => {
   App.addListener('backButton', (ev) => {
     if(['/home', '/manage', '/record', '/achieve', '/profile', '/check', '/activities'].includes(window.location.pathname)) {
       App.exitApp()
+    } else if (!ev.canGoBack) {
+      App.exitApp()
     }
   });
 

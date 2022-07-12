@@ -36,11 +36,10 @@ const Tabs: React.FC = () => {
     }
   }
 
-    return (
+  return (
       <IonReactRouter>
-        { user ?  selecttab()
-           : window.location.pathname == "/signup" ? 
-           <SignupPage></SignupPage> : <LoginPage></LoginPage>
+        { user ? selecttab() : window.location.pathname == "/signup" ? 
+          <SignupPage></SignupPage> : <LoginPage></LoginPage>
         }  
       </IonReactRouter>
     );

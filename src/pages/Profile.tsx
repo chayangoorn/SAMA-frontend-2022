@@ -266,10 +266,12 @@ const ProfilePage: React.FC = () => {
         </div>
         <IonModal ref={modal} trigger="open-modal">
           <IonHeader>
-            <IonToolbar color="white">
-              <IonButtons slot="start" color="black">
-                <IonButton onClick={() => modal.current?.dismiss()}>Cancel</IonButton>
-              </IonButtons>
+            <IonToolbar>
+              <div className="flex pb-2 pl-2">
+                <div onClick={() => modal.current?.dismiss()} className="mt-2">
+                  Cancel
+                </div>
+              </div>
             </IonToolbar>
           </IonHeader>
           <IonContent className="ion-padding">

@@ -6,10 +6,10 @@ import axios from "axios";
 import { StudentUser, TeacherUser } from "../redux/type";
 import { changeData } from "../redux/features/UserDataSlice";
 import { useHistory } from "react-router";
-import SignupPage from "./student/Signup";
 import FloatingInput from "../components/FloatingInput";
 import pic from '../assets/logo.png'
 import { Storage } from '@capacitor/storage';
+import '../theme/alert.css'
 
 const LoginPage: React.FC = () => {
     const dispatch = useDispatch()
@@ -40,8 +40,9 @@ const LoginPage: React.FC = () => {
         header: 'Sign in error',
         message: 'email or password has incorrect please check again',
         buttons: [
-          'OK',
+          {text: 'OK', cssClass: 'ok-button'}
         ],
+        cssClass: 'alert-bg'
       })
     }
 

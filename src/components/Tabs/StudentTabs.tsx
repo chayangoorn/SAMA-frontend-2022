@@ -17,6 +17,7 @@ import FormPage from "../../pages/student/Form";
 import SignupPage from "../../pages/student/Signup";
 import ActivitiesPage from "../../pages/student/Activities";
 import SelectTeacherPage from "../../pages/student/SelectTeacher";
+import SamadetailPage from "../../pages/Samadetail";
 
 import HomeSvg from "../assets/home.svg";
 import DocumentTextSvg from "../assets/document-text.svg";
@@ -82,6 +83,7 @@ const StudentTabs: React.FC = () => {
         <Route path="/manage/edit/:form/:id" component={FormPage} exact />
         <Route path="/signup" component={SignupPage} exact />
         <Route path="/home/:form/:id" component={FormPage} exact />
+        <Route path="/sama" component={SamadetailPage}/>
         <Route path="/home/:form/send/:id" component={SelectTeacherPage} exact />
         {tabs.map((tab, index) => {
           return (

@@ -7,6 +7,7 @@ import {
   useIonViewWillEnter,
   IonFab,
   IonFabButton,
+  useIonAlert
 } from "@ionic/react";
 import { chevronBack, paperPlane } from "ionicons/icons";
 import { useIonRouter } from "@ionic/react";
@@ -30,6 +31,7 @@ const ActivitiesPage: React.FC = () => {
   const activities = useSelector((state: RootState) => state.actData)
   const userData = useSelector((state: RootState) => state.userData)
   let student = userData.user as StudentUser
+  const [present] = useIonAlert()
   const [sendData, setSendData] = useState<ids>({act_ids: []})
   const [selects, setSelects] = useState(Array.from({length: activities.data.length}, () => false))
   const navigateBack = () => {
@@ -39,7 +41,15 @@ const ActivitiesPage: React.FC = () => {
   };
 
   const pushNavigate = () => {
-    router.push('/send/'+sendData.act_ids.join("&"), 'forward', 'push')
+    if (sendData.act_ids.length !== 0) {
+      router.push('/send/'+sendData.act_ids.join("&"), 'forward', 'push')
+    } else {
+      present({
+        message: "กรุณาเลือกรายการที่ต้องการส่ง",
+        buttons: ["OK"]
+      })
+    }
+    
   }
 
   useIonViewWillEnter(() => {

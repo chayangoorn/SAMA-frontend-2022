@@ -84,7 +84,7 @@ const SignupPage: React.FC = () => {
                     key: 'userEmail',
                     value: signUp.email,
                   });
-                  window.location.replace('/')
+                  window.location.replace('/home')
                 })}
               ],
             })

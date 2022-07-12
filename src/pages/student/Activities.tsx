@@ -76,12 +76,7 @@ const ActivitiesPage: React.FC = () => {
     if (select) {
       newSendData.act_ids.push(data.act_id.toString())
     } else {
-      if (newSendData.act_ids.length == 1) {
-        newSendData.act_ids = []
-      } else {
-        newSendData.act_ids.splice(index, 1)
-      }
-      
+      newSendData.act_ids = newSendData.act_ids.filter((id, idx) => idx !== index)
     }
     setSendData(newSendData)
   }

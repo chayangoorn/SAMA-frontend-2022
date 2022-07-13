@@ -29,6 +29,7 @@ const LoginPage: React.FC = () => {
     }
 
     const setEmail = async (email: string) => {
+      await Storage.remove({ key: 'userEmail' });
       await Storage.set({
         key: 'userEmail',
         value: email,

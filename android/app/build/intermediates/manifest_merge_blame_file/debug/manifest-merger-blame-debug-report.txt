@@ -57,85 +57,84 @@
 33-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:9:9-54
 34        android:supportsRtl="true"
 34-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:10:9-35
-35        android:testOnly="true"
-36        android:theme="@style/AppTheme"
-36-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:11:9-40
-37        android:usesCleartextTraffic="true" >
-37-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:12:9-44
-38        <activity
-38-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:14:9-32:20
-39            android:name="io.ionic.starter.MainActivity"
-39-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:16:13-57
-40            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-40-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:15:13-129
-41            android:label="@string/title_activity_main"
-41-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:17:13-56
-42            android:launchMode="singleTask"
-42-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:19:13-44
-43            android:theme="@style/AppTheme.NoActionBarLaunch" >
-43-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:18:13-62
-44            <intent-filter>
-44-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:21:13-24:29
-45                <action android:name="android.intent.action.MAIN" />
-45-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:22:17-69
-45-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:22:25-66
-46
-47                <category android:name="android.intent.category.LAUNCHER" />
-47-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:23:17-77
-47-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:23:27-74
-48            </intent-filter>
-49            <intent-filter>
-49-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:25:13-30:29
-50                <action android:name="android.intent.action.VIEW" />
-50-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:26:17-69
-50-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:26:25-66
-51
-52                <category android:name="android.intent.category.DEFAULT" />
-52-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:27:17-76
-52-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:27:27-73
-53                <category android:name="android.intent.category.BROWSABLE" />
-53-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:28:17-78
-53-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:28:27-75
-54
-55                <data android:scheme="@string/custom_url_scheme" />
-55-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:29:17-68
-55-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:29:23-65
-56            </intent-filter>
-57        </activity>
-58
-59        <provider
-60            android:name="androidx.core.content.FileProvider"
-60-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:35:13-62
-61            android:authorities="com.pccp.sama.fileprovider"
-61-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:36:13-64
-62            android:exported="false"
-62-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:37:13-37
-63            android:grantUriPermissions="true" >
-63-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:38:13-47
-64            <meta-data
-64-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:39:13-41:64
-65                android:name="android.support.FILE_PROVIDER_PATHS"
-65-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:40:17-67
-66                android:resource="@xml/file_paths" />
-66-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:41:17-51
-67        </provider>
-68        <provider
-68-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:9-25:20
-69            android:name="io.github.pwlin.cordova.plugins.fileopener2.FileProvider"
-69-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-84
-70            android:authorities="com.pccp.sama.fileOpener2.provider"
-70-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-72
-71            android:exported="false"
-71-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-37
-72            android:grantUriPermissions="true" >
-72-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-47
-73            <meta-data
-73-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:39:13-41:64
-74                android:name="android.support.FILE_PROVIDER_PATHS"
-74-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:40:17-67
-75                android:resource="@xml/opener_paths" />
-75-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:41:17-51
-76        </provider>
-77    </application>
-78
-79</manifest>
+35        android:theme="@style/AppTheme"
+35-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:11:9-40
+36        android:usesCleartextTraffic="true" >
+36-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:12:9-44
+37        <activity
+37-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:14:9-32:20
+38            android:name="io.ionic.starter.MainActivity"
+38-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:16:13-57
+39            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+39-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:15:13-129
+40            android:label="@string/title_activity_main"
+40-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:17:13-56
+41            android:launchMode="singleTask"
+41-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:19:13-44
+42            android:theme="@style/AppTheme.NoActionBarLaunch" >
+42-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:18:13-62
+43            <intent-filter>
+43-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:21:13-24:29
+44                <action android:name="android.intent.action.MAIN" />
+44-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:22:17-69
+44-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:22:25-66
+45
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:23:17-77
+46-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:23:27-74
+47            </intent-filter>
+48            <intent-filter>
+48-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:25:13-30:29
+49                <action android:name="android.intent.action.VIEW" />
+49-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:26:17-69
+49-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:26:25-66
+50
+51                <category android:name="android.intent.category.DEFAULT" />
+51-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:27:17-76
+51-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:27:27-73
+52                <category android:name="android.intent.category.BROWSABLE" />
+52-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:28:17-78
+52-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:28:27-75
+53
+54                <data android:scheme="@string/custom_url_scheme" />
+54-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:29:17-68
+54-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:29:23-65
+55            </intent-filter>
+56        </activity>
+57
+58        <provider
+59            android:name="androidx.core.content.FileProvider"
+59-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:35:13-62
+60            android:authorities="com.pccp.sama.fileprovider"
+60-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:36:13-64
+61            android:exported="false"
+61-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:37:13-37
+62            android:grantUriPermissions="true" >
+62-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:38:13-47
+63            <meta-data
+63-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:39:13-41:64
+64                android:name="android.support.FILE_PROVIDER_PATHS"
+64-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:40:17-67
+65                android:resource="@xml/file_paths" />
+65-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:41:17-51
+66        </provider>
+67        <provider
+67-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:9-25:20
+68            android:name="io.github.pwlin.cordova.plugins.fileopener2.FileProvider"
+68-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-84
+69            android:authorities="com.pccp.sama.fileOpener2.provider"
+69-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-72
+70            android:exported="false"
+70-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-37
+71            android:grantUriPermissions="true" >
+71-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-47
+72            <meta-data
+72-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:39:13-41:64
+73                android:name="android.support.FILE_PROVIDER_PATHS"
+73-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:40:17-67
+74                android:resource="@xml/opener_paths" />
+74-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:41:17-51
+75        </provider>
+76    </application>
+77
+78</manifest>

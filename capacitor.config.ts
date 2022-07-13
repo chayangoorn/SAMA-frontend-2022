@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.pccp.sama',
+  appId: 'com.pccp.activitys',
   appName: 'SAMA',
   webDir: 'build',
   bundledWebRuntime: false

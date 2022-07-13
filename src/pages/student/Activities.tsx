@@ -76,7 +76,7 @@ const ActivitiesPage: React.FC = () => {
     if (select) {
       newSendData.act_ids.push(data.act_id.toString())
     } else {
-      newSendData.act_ids = newSendData.act_ids.filter((id, idx) => idx !== index)
+      newSendData.act_ids = newSendData.act_ids.filter((id) => id !== data.act_id.toString())
     }
     setSendData(newSendData)
   }

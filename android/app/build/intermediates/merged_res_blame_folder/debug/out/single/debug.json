@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
-    },
-    {
         "merged": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi_splash.png.flat",
         "source": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\splash.png"
+    },
+    {
+        "merged": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
         "merged": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
@@ -54,6 +54,10 @@
     {
         "merged": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Prestige\\Documents\\GitHub\\SAMA-frontend-2022\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxxhdpi_splash.png.flat",

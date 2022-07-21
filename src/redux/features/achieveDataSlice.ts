@@ -33,7 +33,7 @@ export const fetchAchieveByID = createAsyncThunk<Points, string>(
   "activity/fetchAchieveByID",
   async (stdID, thunkAPI) => {
     const respones: any = await axios.post(
-      "http://www.zp11489.tld.122.155.167.85.no-domain.name/www/achieve.php",
+      "http://pcshsptsama.com/www/achieve.php",
       JSON.stringify({ std_id: stdID })
     );
     if (respones.status === 200) {

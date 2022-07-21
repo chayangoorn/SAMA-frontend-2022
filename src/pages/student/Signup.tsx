@@ -71,7 +71,7 @@ const SignupPage: React.FC = () => {
     event.preventDefault();
     validateForm().then(async (val) => {
       if (!val) {
-        await axios.post('http://www.zp11489.tld.122.155.167.85.no-domain.name/www/register.php', JSON.stringify(signUp))
+        await axios.post('http://pcshsptsama.com/www/register.php', JSON.stringify(signUp))
         .then(async (res) => {
           console.log(res.data)
           await auth.createUserWithEmailAndPassword(signUp.email, signUp.password)

@@ -15,7 +15,7 @@ const initialState = {
 export const fetchActivitiesByID = createAsyncThunk<ActData[],Array<string>>(
   'activity/fetchActivitiesByID',
   async ([ stdID, act_type] , thunkAPI) => {
-      const respones: any = await axios.post('http://www.zp11489.tld.122.155.167.85.no-domain.name/www/get-activities.php', JSON.stringify({std_ID: stdID, act_type: act_type}))
+      const respones: any = await axios.post('http://pcshsptsama.com/www/get-activities.php', JSON.stringify({std_ID: stdID, act_type: act_type}))
       if (respones.status === 200) {
           return respones.data;
       } else {

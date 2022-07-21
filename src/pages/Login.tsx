@@ -68,7 +68,7 @@ const LoginPage: React.FC = () => {
           const loginData = {
             email: res.user?.email
           }
-          axios.post('http://www.zp11489.tld.122.155.167.85.no-domain.name/www/login.php', JSON.stringify(loginData))
+          axios.post('http://pcshsptsama.com/www/login.php', JSON.stringify(loginData))
           .then( async user => {
             let data: StudentUser | TeacherUser
             if (Number(user.data.flag) === 0) {

@@ -103,7 +103,7 @@ const ProfilePage: React.FC = () => {
       if (!val) {
         let data:any = {}
         if (Number(userData.user.flag) === 0) {data = stdProfile} else {data = tchProfile}
-        await axios.post('http://www.zp11489.tld.122.155.167.85.no-domain.name/www/register.php', JSON.stringify(data))
+        await axios.post('http://pcshsptsama.com/www/register.php', JSON.stringify(data))
         .then(async (res) => {
           console.log(res.data)
           await auth.currentUser?.updateEmail(data.email)
@@ -208,13 +208,13 @@ const ProfilePage: React.FC = () => {
                 headers: {},
                 mimeType: "image/"+result.format
               }
-              fileTransfer.upload(result.dataUrl as string, "http://www.zp11489.tld.122.155.167.85.no-domain.name/www/uppic.php", option)
+              fileTransfer.upload(result.dataUrl as string, "http://pcshsptsama.com/www/uppic.php", option)
               .then(async (res) => {
                 let data = {
                   id: userData.user.user_id,
                   flag: userData.user.flag
                 }
-                await axios.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/upprofile.php", JSON.stringify(data))
+                await axios.post("http://pcshsptsama.com/www/upprofile.php", JSON.stringify(data))
                 .then((res) => {
                   present({
                     message: "เปลี่ยนรูปโปรไฟล์สำเร็จ",
@@ -230,7 +230,7 @@ const ProfilePage: React.FC = () => {
     })
   }
 
-  const linkpic = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/'
+  const linkpic = 'http://pcshsptsama.com/www/profile/'
 
   return (
     <IonPage ref={page}>

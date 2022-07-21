@@ -15,7 +15,7 @@ const initialState = {
 export const fetchCheckActivitiesByName = createAsyncThunk<ActData[],Array<string>>(
   'activity/fetchCheckActivitiesByName',
   async ([ firstanme, lastname ] , thunkAPI) => {
-      const respones: any = await axios.post('http://www.zp11489.tld.122.155.167.85.no-domain.name/www/get-activities.php', 
+      const respones: any = await axios.post('http://pcshsptsama.com/www/get-activities.php', 
       JSON.stringify({tch_firstname: firstanme, tch_lastname: lastname}))
       if (respones.status === 200) {
           return respones.data;

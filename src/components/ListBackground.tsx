@@ -102,7 +102,7 @@ const ListBackground: React.FC<ListComponentProps> = ({
   const onCheck = async (id: number, e: React.MouseEvent<HTMLDivElement>) => {
     await axios
       .post(
-        "http://www.zp11489.tld.122.155.167.85.no-domain.name/www/update-act.php",
+        "http://pcshsptsama.com/www/update-act.php",
         JSON.stringify({ act_id: id, flag: 3 })
       )
       .then((res) => {
@@ -115,7 +115,7 @@ const ListBackground: React.FC<ListComponentProps> = ({
   const onWrong = async (id: number, e: React.MouseEvent<HTMLDivElement>) => {
     await axios
       .post(
-        "http://www.zp11489.tld.122.155.167.85.no-domain.name/www/update-act.php",
+        "http://pcshsptsama.com/www/update-act.php",
         JSON.stringify({ act_id: id, flag: 4 })
       )
       .then((res) => {

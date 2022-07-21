@@ -15,7 +15,7 @@ const initialState = {
 export const fetchUserBytoken = createAsyncThunk<StudentUser | TeacherUser,string | null | undefined>(
     'users/fetchUserByToken',
     async (email , thunkAPI) => {
-        const respones: any = await axios.post('http://www.zp11489.tld.122.155.167.85.no-domain.name/www/login.php', JSON.stringify({email: email}))
+        const respones: any = await axios.post('http://pcshsptsama.com/www/login.php', JSON.stringify({email: email}))
         if (respones.status === 200) {
             let data: StudentUser | TeacherUser
             if (respones.data['flag'] === '0') {

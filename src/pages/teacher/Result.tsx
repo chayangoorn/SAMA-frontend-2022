@@ -38,10 +38,10 @@ const ResultPage: React.FC = () => {
     getStudent()
   })
 
-  const linkpic = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/'
+  const linkpic = 'http://pcshsptsama.com/www/profile/'
   const [user, setUser] = useState<StudentUser>()
   const getStudent = async () => {
-    await axios.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/login.php", JSON.stringify({std_ID: id}))
+    await axios.post("http://pcshsptsama.com/www/login.php", JSON.stringify({std_ID: id}))
     .then((res) => {
         const userData: StudentUser = {
             user_id: res.data.user_id,

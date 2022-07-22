@@ -41,9 +41,8 @@ const LoginPage: React.FC = () => {
         header: 'Sign in error',
         message: 'email or password has incorrect please check again',
         buttons: [
-          {text: 'OK', cssClass: 'ok-button'}
-        ],
-        cssClass: 'alert-bg'
+          {text: 'OK'}
+        ]
       })
     }
 
@@ -135,8 +134,14 @@ const LoginPage: React.FC = () => {
               }}]
             }) 
           })
+          .catch(() => {
+            present({
+              message: "รูปแบบอีเมลไม่ถูกต้องหรือไม่มีอีเมลนี้ในระบบ กรุณาตรวจสอบอีกครั้ง",
+              buttons: [{text: "OK"}]
+            }) 
+          })
         }
-      }]
+      }, {text: "Cancel"}]
     })
 
         

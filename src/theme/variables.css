@@ -28,6 +28,11 @@ input:focus ~ label {
   @apply left-0;
 }
 
+ion-spinner {
+  width: 70px !important;
+  height: 70px !important;
+}
+
 /** Ionic CSS Variables **/
 :root {
 

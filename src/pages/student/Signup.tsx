@@ -33,7 +33,7 @@ const SignupPage: React.FC = () => {
 
   const validateForm = async () => {
     const asArray = Object.entries(signUp);
-    const filtered = asArray.filter(([key, value]) => value == '');
+    const filtered = asArray.filter(([key, value]) => value === '');
     let i = 0
     let newValidation: any = {...validate}
     filtered.forEach((element) => {
@@ -41,7 +41,7 @@ const SignupPage: React.FC = () => {
       i++
     });
     setValidate(newValidation)
-    if (i==0) {
+    if (i===0) {
       if (signUp.password.length < 6) {
         present({
           message: 'Password must be more than 6 character',
@@ -73,30 +73,30 @@ const SignupPage: React.FC = () => {
       if (!val) {
         await axios.post('http://pcshsptsama.com/www/register.php', JSON.stringify(signUp))
         .then(async (res) => {
-          console.log(res.data)
-          await auth.createUserWithEmailAndPassword(signUp.email, signUp.password)
-          .then(() => {
-            present({
-              message: res.data,
-              buttons: [
-                {text: 'OK', handler: (async () => {
-                  await Storage.set({
-                    key: 'userEmail',
-                    value: signUp.email,
-                  });
-                  window.location.replace('/home')
-                })}
-              ],
-            })
-          })
-          .catch(() => {
+          if (res.data === "This user already exists in the system.") {
             present({
               message: res.data,
               buttons: [
                 {text: 'OK'}
               ],
             })
-          })
+          } else {
+            await auth.createUserWithEmailAndPassword(signUp.email, signUp.password)
+            .then(() => {
+              present({
+                message: res.data,
+                buttons: [
+                  {text: 'OK', handler: (async () => {
+                    await Storage.set({
+                      key: 'userEmail',
+                      value: signUp.email,
+                    });
+                    window.location.replace('/home')
+                  })}
+                ],
+              })
+            })
+          }
         })
       }
     })
@@ -294,6 +294,9 @@ const SignupPage: React.FC = () => {
               Sign up
             </button>
           </form>
+          <div className="text-center font-bold mt-5">
+            <a href="/login">back to sign in</a>
+          </div>
         </div>
       </IonContent>
     </IonPage>

@@ -177,7 +177,7 @@ const MenuList: React.FC<MenuListProps> = ({email, flag, user_id}) => {
     }
 
     const deleteAccount = async () => {
-       await axios.post("http://www.pcshsptsama.com/www/register.php", JSON.stringify({user_id: user_id, flag: flag, method: "delete-user"}))
+       await axios.post("https://pcshsptsama.com/www/register.php", JSON.stringify({user_id: user_id, flag: flag, method: "delete-user"}))
         .then(async (res) => {
             if (res.data === "delete account completed!") {
                 await auth.currentUser?.delete()

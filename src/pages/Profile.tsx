@@ -3,10 +3,7 @@ import { IonPage,
   IonHeader,
   IonContent,
   IonToolbar,
-  IonButtons,
-  IonButton,
   IonSelect,
-  IonIcon,
   IonSelectOption,
   SelectChangeEventDetail,
   useIonAlert,
@@ -24,16 +21,17 @@ import { StudentUser, TeacherUser } from "../redux/type";
 import blank from '../assets/blankprofile.png'
 import classroom from "../redux/classroom";
 import axios from "axios";
-import { auth } from "../Firebase/firebase";
-import { Storage } from "@capacitor/storage";
 import { person } from "ionicons/icons";
 import { FileTransfer, FileTransferObject, FileUploadOptions } from '@awesome-cordova-plugins/file-transfer'
 import { Camera, CameraSource, CameraResultType, ImageOptions } from '@capacitor/camera'
+import { auth } from "../Firebase/firebase";
 
 const ProfilePage: React.FC = () => {
   const modal = useRef<HTMLIonModalElement>(null);
   const page = useRef(undefined);
   const [present] = useIonAlert()
+  const token = auth.currentUser?.getIdToken()
+  const uid = auth.currentUser?.uid
   const [pic, setPic] = useState<string>()
   const [presentAction] = useIonActionSheet()
   const dispatch = useDispatch<AppDispatch>()
@@ -47,16 +45,16 @@ const ProfilePage: React.FC = () => {
     classroom: student.classroom,
     number: student.number,
     dormitory: student.dormitory,
-    email: student.email,
     user_id: student.user_id,
-    flag: '0'
+    flag: '0',
+    method: "update-profile"
   });
   const [tchProfile, setTchProfile] = useState({
     firstname: teacher.firstname,
     lastname: teacher.lastname,
-    email: teacher.email,
     user_id: teacher.user_id,
-    flag: '2'
+    flag: '2',
+    method: "update-profile"
   });
   const [validate, setValidate] = useState({
     firstname: false,
@@ -64,7 +62,6 @@ const ProfilePage: React.FC = () => {
     classroom: false,
     number: false,
     dormitory: false,
-    email: false,
   });
 
   useEffect(() => {
@@ -103,20 +100,13 @@ const ProfilePage: React.FC = () => {
       if (!val) {
         let data:any = {}
         if (Number(userData.user.flag) === 0) {data = stdProfile} else {data = tchProfile}
-        await axios.post('http://pcshsptsama.com/www/register.php', JSON.stringify(data))
-        .then(async (res) => {
-          console.log(res.data)
-          await auth.currentUser?.updateEmail(data.email)
-          .then(() => {
+        //data.token = token; data.uid = uid
+          await axios.post('https://pcshsptsama.com/www/register.php', JSON.stringify(data))
+          .then((res) => {
             present({
               message: res.data,
               buttons: [
                 {text: 'OK', handler: (async () => {
-                  await Storage.remove({ key: 'userEmail' });
-                  await Storage.set({
-                    key: 'userEmail',
-                    value: data.email,
-                  });
                   modal.current?.dismiss()
                 })}
               ],
@@ -130,7 +120,6 @@ const ProfilePage: React.FC = () => {
               ],
             })
           })
-        })
       }
     })
   };
@@ -208,13 +197,15 @@ const ProfilePage: React.FC = () => {
                 headers: {},
                 mimeType: "image/"+result.format
               }
-              fileTransfer.upload(result.dataUrl as string, "http://pcshsptsama.com/www/uppic.php", option)
+              fileTransfer.upload(result.dataUrl as string, "https://pcshsptsama.com/www/uppic.php", option)
               .then(async (res) => {
-                let data = {
+                let data: any = {
                   id: userData.user.user_id,
-                  flag: userData.user.flag
+                  flag: userData.user.flag,
                 }
-                await axios.post("http://pcshsptsama.com/www/upprofile.php", JSON.stringify(data))
+                //data.uid = uid
+                //data.token = token
+                await axios.post("https://pcshsptsama.com/www/upprofile.php", JSON.stringify(data))
                 .then((res) => {
                   present({
                     message: "เปลี่ยนรูปโปรไฟล์สำเร็จ",
@@ -230,7 +221,7 @@ const ProfilePage: React.FC = () => {
     })
   }
 
-  const linkpic = 'http://pcshsptsama.com/www/profile/'
+  const linkpic = 'https://pcshsptsama.com/www/profile/'
 
   return (
     <IonPage ref={page}>
@@ -261,7 +252,7 @@ const ProfilePage: React.FC = () => {
           }
           <img src={pic} />
           <div className="mx-3 mt-5">
-            <MenuList email={userData.user.email}></MenuList>
+            <MenuList email={userData.user.email} user_id={userData.user.user_id} flag={userData.user.flag.toString()}></MenuList>
           </div>
         </div>
         <IonModal ref={modal} trigger="open-modal">
@@ -367,19 +358,7 @@ const ProfilePage: React.FC = () => {
                 </div>
               </div>
               }
-              <div className="mb-3">
-                <FloatingInput
-                  label="Email"
-                  type="email"
-                  name="email"
-                  value={ Number(userData.user.flag) === 0 ?
-                    stdProfile.email : tchProfile.email
-                  }
-                  onChangeHandler={onChangeInputHandler}
-                  err={validate.email}
-                ></FloatingInput>
-                {validate.email && <label className="text-red-400 text-xs">please fill email</label>}
-              </div>
+              
             </div>
             <button
               type="submit"

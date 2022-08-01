@@ -18,6 +18,7 @@ const SignupPage: React.FC = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    method: "register"
   });
   const [validate, setValidate] = useState({
     firstname: false,
@@ -71,7 +72,7 @@ const SignupPage: React.FC = () => {
     event.preventDefault();
     validateForm().then(async (val) => {
       if (!val) {
-        await axios.post('http://pcshsptsama.com/www/register.php', JSON.stringify(signUp))
+        await axios.post('https://pcshsptsama.com/www/register.php', JSON.stringify(signUp))
         .then(async (res) => {
           if (res.data === "This user already exists in the system.") {
             present({

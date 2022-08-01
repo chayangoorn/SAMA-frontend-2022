@@ -9,7 +9,6 @@ import { useHistory } from "react-router";
 import FloatingInput from "../components/FloatingInput";
 import pic from '../assets/logo.png'
 import { Storage } from '@capacitor/storage';
-import '../theme/alert.css'
 
 const LoginPage: React.FC = () => {
     const dispatch = useDispatch()
@@ -64,45 +63,49 @@ const LoginPage: React.FC = () => {
       try {
         auth.signInWithEmailAndPassword(login.email, login.password)
         .then(res => {
-          const loginData = {
-            email: res.user?.email
-          }
-          axios.post('http://pcshsptsama.com/www/login.php', JSON.stringify(loginData))
-          .then( async user => {
-            let data: StudentUser | TeacherUser
-            if (Number(user.data.flag) === 0) {
-              data = {
-                user_id: user.data.user_id,
-                std_id: user.data.std_ID,
-                firstname: user.data.std_firstname,
-                lastname: user.data.std_lastname,
-                classroom: user.data.std_classroom,
-                number: user.data.std_number,
-                dormitory: user.data.std_dormitory,
-                email: user.data.std_email,
-                img_path: user.data.img_path,
-                flag: user.data.flag
-              }
-              console.log(data)
-              dispatch(changeData(data))
-              await setEmail(data.email)
-              replace('/home')
-            } else {
-              data = {
-                user_id: user.data.user_id,
-                firstname: user.data.tch_firstname,
-                lastname: user.data.tch_lastname,
-                img_path: user.data.img_path,
-                email: user.data.tch_email,
-                flag: user.data.flag
-              }
-              console.log(data)
-              dispatch(changeData(data))
-              await setEmail(data.email)
-              replace('/check')
+          res.user!.getIdToken().then((token) => {
+            const loginData = {
+              email: res.user?.email,
+              //uid: res.user?.uid,
+              //token: token
             }
-            
-            })
+            axios.post('https://pcshsptsama.com/www/login.php', JSON.stringify(loginData))
+            .then( async user => {
+              let data: StudentUser | TeacherUser
+              if (Number(user.data.flag) === 0) {
+                data = {
+                  user_id: user.data.user_id,
+                  std_id: user.data.std_ID,
+                  firstname: user.data.std_firstname,
+                  lastname: user.data.std_lastname,
+                  classroom: user.data.std_classroom,
+                  number: user.data.std_number,
+                  dormitory: user.data.std_dormitory,
+                  email: user.data.std_email,
+                  img_path: user.data.img_path,
+                  flag: user.data.flag
+                }
+                console.log(data)
+                dispatch(changeData(data))
+                await setEmail(data.email)
+                replace('/home')
+              } else {
+                data = {
+                  user_id: user.data.user_id,
+                  firstname: user.data.tch_firstname,
+                  lastname: user.data.tch_lastname,
+                  img_path: user.data.img_path,
+                  email: user.data.tch_email,
+                  flag: user.data.flag
+                }
+                console.log(data)
+                dispatch(changeData(data))
+                await setEmail(data.email)
+                replace('/check')
+              }
+              
+              })
+          })
       }).catch((err) => {
         errorAlert()
       })

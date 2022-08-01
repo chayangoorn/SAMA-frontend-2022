@@ -23,7 +23,7 @@ const ListComponent: React.FC<ListComponentProps> = ({
     navigate
 }) => {
 
-    const linkpic = 'http://pcshsptsama.com/www/profile/'
+    const linkpic = 'https://pcshsptsama.com/www/profile/'
     return (
         <div className="w-full p-3">
             <div className="text-base grid grid-cols-6 bg-white items-center flex items-stretch">

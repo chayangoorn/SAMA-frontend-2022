@@ -28,11 +28,14 @@ import axios from "axios";
 import { fetchUserBytoken } from "../../redux/features/UserDataSlice";
 import { AuthContext } from "../../Firebase/AuthContext";
 import { initialActData, initialvalidateAct } from "../../redux/initialState";
+import { auth } from "../../Firebase/firebase";
 
 const FormPage: React.FC = () => {
   const router = useIonRouter();
   const { form, id } = useParams<{ form: string, id : string }>();
   const userData = useSelector((state: RootState) => state.userData)
+  //const token = auth.currentUser?.getIdToken()
+  //const uid = auth.currentUser?.uid
   let student = userData.user as StudentUser
   const activities = useSelector((state: RootState) => state.actData.data)
   const [read, setRead] = useState(false)
@@ -231,7 +234,7 @@ const FormPage: React.FC = () => {
         if ((['03', '11'].includes(actData.act_type)) && actData.act_date.length === 4) 
         { sendData['act_date'] = actData.act_date+"-00-00" }
         console.log(sendData)
-        await axios.post(`http://pcshsptsama.com/www/${path}.php`, JSON.stringify(sendData))
+        await axios.post(`https://pcshsptsama.com/www/${path}.php`, JSON.stringify(sendData))
         .then(res => {
           console.log(res)
           present({
@@ -256,7 +259,7 @@ const FormPage: React.FC = () => {
   const onDelete = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
     console.log(actData.act_id)
-    await axios.post(`http://pcshsptsama.com/www/delete-act.php`, JSON.stringify({id : actData.act_id}))
+    await axios.post(`https://pcshsptsama.com/www/delete-act.php`, JSON.stringify({id : actData.act_id}))
     .then(res => {
       console.log(res)
       navigateBack()

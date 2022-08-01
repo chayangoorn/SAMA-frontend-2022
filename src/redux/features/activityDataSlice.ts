@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ActData } from "../type";
 import axios from "axios";
+import { auth } from "../../Firebase/firebase";
 
 interface ActivitiesState {
   data: ActData[]
@@ -15,7 +16,12 @@ const initialState = {
 export const fetchActivitiesByID = createAsyncThunk<ActData[],Array<string>>(
   'activity/fetchActivitiesByID',
   async ([ stdID, act_type] , thunkAPI) => {
-      const respones: any = await axios.post('http://pcshsptsama.com/www/get-activities.php', JSON.stringify({std_ID: stdID, act_type: act_type}))
+    //const token = await auth.currentUser?.getIdToken()
+    //const uid = auth.currentUser?.uid
+      const respones: any = await axios.post('https://pcshsptsama.com/www/get-activities.php', JSON.stringify(
+        {
+          std_ID: stdID, act_type: act_type, //token: token, uid: uid
+        }))
       if (respones.status === 200) {
           return respones.data;
       } else {

@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
     dispatch(fetchActivitiesByID([student.std_id]))
   })
 
-  const linkpic = 'http://pcshsptsama.com/www/profile/'
+  const linkpic = 'https://pcshsptsama.com/www/profile/'
 
   const navigate = (path: string) => {
     router.push(path, 'forward', 'push')

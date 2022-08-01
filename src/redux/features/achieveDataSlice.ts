@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { auth } from "../../Firebase/firebase";
 
 interface AchieveState {
   points : Points
@@ -32,9 +33,11 @@ const initialState = {
 export const fetchAchieveByID = createAsyncThunk<Points, string>(
   "activity/fetchAchieveByID",
   async (stdID, thunkAPI) => {
+    //const token = await auth.currentUser?.getIdToken()
+    //const uid = auth.currentUser?.uid
     const respones: any = await axios.post(
-      "http://pcshsptsama.com/www/achieve.php",
-      JSON.stringify({ std_id: stdID })
+      "https://pcshsptsama.com/www/achieve.php",
+      JSON.stringify({ std_id: stdID, /*token: token, uid: uid*/ })
     );
     if (respones.status === 200) {
       return respones.data;

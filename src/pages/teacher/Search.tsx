@@ -21,7 +21,7 @@ const SearchPage: React.FC = () => {
     const [loading, setLoading] = useState(false)
     const [listName, setListName] = useState<Array<any>>()
     const getName = async () => {
-        await axios.post('http://pcshsptsama.com/www/selectname.php',
+        await axios.post('https://pcshsptsama.com/www/selectname.php',
         JSON.stringify({classroom: room}))
         .then((res) => {
             setListName(res.data)
@@ -64,7 +64,7 @@ const SearchPage: React.FC = () => {
     const getClassPoints = async () => {
       if (!loading) {
         setLoading(true)
-        await axios.post("http://pcshsptsama.com/www/achieve.php", JSON.stringify({classroom: room}))
+        await axios.post("https://pcshsptsama.com/www/achieve.php", JSON.stringify({classroom: room}))
         .then((res) => {
           setLoading(false)
         })
@@ -74,7 +74,7 @@ const SearchPage: React.FC = () => {
     const download = async () => {
       //console.log("download")
       if (room) {
-        const url = 'http://pcshsptsama.com/www/report/download.php';
+        const url = 'https://pcshsptsama.com/www/report/download.php';
         const filename = room[0]+"-"+room[2]+"-report.csv"
         console.log(filename)
         await axios.post(url, JSON.stringify({filename: filename})).then( async (res) => {

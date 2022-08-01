@@ -33,7 +33,7 @@ const SelectTeacherPage: React.FC = () => {
   })
 
   const teacher = async () => {
-    await axios.get('http://pcshsptsama.com/www/teacher.php')
+    await axios.get('https://pcshsptsama.com/www/teacher.php')
     .then((res) => {
         setTeachers(res.data)
     })
@@ -41,7 +41,7 @@ const SelectTeacherPage: React.FC = () => {
 
   const onSelect = async (teacher: any) => {
     act_ids.forEach( async (id, index) => {
-        await axios.post('http://pcshsptsama.com/www/send.php', 
+        await axios.post('https://pcshsptsama.com/www/send.php', 
         JSON.stringify({
             act_id: id,
             flag: 1,
@@ -58,7 +58,7 @@ const SelectTeacherPage: React.FC = () => {
     })
   }
 
-  const linkpic = 'http://pcshsptsama.com/www/profile/'
+  const linkpic = 'https://pcshsptsama.com/www/profile/'
 
   return (
     <IonPage>

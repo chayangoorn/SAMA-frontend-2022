@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://pcshsptsama.com/www/";
+const API_URL = "https://pcshsptsama.com/www/";
 
 const register = (username: string, email: string, password: string) => {
   return axios.post(API_URL + "signup", {

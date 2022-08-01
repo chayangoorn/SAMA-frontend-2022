@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { StudentUser, TeacherUser } from "../type";
+import { auth } from "../../Firebase/firebase";
 
 interface UserState {
     user: StudentUser | TeacherUser
@@ -15,7 +16,9 @@ const initialState = {
 export const fetchUserBytoken = createAsyncThunk<StudentUser | TeacherUser,string | null | undefined>(
     'users/fetchUserByToken',
     async (email , thunkAPI) => {
-        const respones: any = await axios.post('http://pcshsptsama.com/www/login.php', JSON.stringify({email: email}))
+        //const token = await auth.currentUser?.getIdToken()
+        //const uid = auth.currentUser?.uid
+        const respones: any = await axios.post('https://pcshsptsama.com/www/login.php', JSON.stringify({email: email, /*token: token, uid: uid*/}))
         if (respones.status === 200) {
             let data: StudentUser | TeacherUser
             if (respones.data['flag'] === '0') {

@@ -1,0 +1,49 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+3    xmlns:android="http://schemas.android.com/apk/res/android"
+4    package="capacitor.android.plugins" >
+5
+6    <uses-sdk
+7        android:minSdkVersion="23"
+7-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+8        android:targetSdkVersion="31" />
+8-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+9
+10    <uses-permission android:name="android.permission.INTERNET" />
+10-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:10:1-62
+10-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:10:18-60
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:11:1-74
+11-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:11:18-72
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:12:1-76
+12-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:12:18-74
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:13:1-75
+13-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:13:18-73
+14    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+14-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:14:1-78
+14-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:14:18-76
+15
+16    <application>
+16-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:1-9:15
+17        <provider
+17-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:1-8:12
+18            android:name="io.github.pwlin.cordova.plugins.fileopener2.FileProvider"
+18-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:11-82
+19            android:authorities="${applicationId}.fileOpener2.provider"
+19-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:83-142
+20            android:exported="false"
+20-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:143-167
+21            android:grantUriPermissions="true" >
+21-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:168-202
+22            <meta-data
+22-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:7:3-103
+23                android:name="android.support.FILE_PROVIDER_PATHS"
+23-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:7:14-64
+24                android:resource="@xml/opener_paths" />
+24-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:7:65-101
+25        </provider>
+26    </application>
+27
+28</manifest>

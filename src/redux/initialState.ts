@@ -1,43 +1,45 @@
 import { ActData, ValidateAct } from "./type";
 
 const initialActData:ActData = {
-    act_id: 0,
+    act_id: '',
     act_type: '',
-    act_type_name: '',
-    std_id: '',
-    act_date: '',
-    act_head: '',
-    act_print: '',
-    act_hours: 0,
-    act_places: '',
-    act_details: '',
-    act_feels: '',
-    act_time_starts: '',
-    act_time_ends: '',
+    act_done_time: 0,
+    act_data: {
+        act_date: '',
+        act_head: '',
+        act_print: '',
+        act_hour: 0,
+        act_place: '',
+        act_detail: '',
+        act_feel: '',
+        act_time_start: '',
+        act_time_end: ''
+    },
+    std_ID: '',
     std_firstname: '',
     std_lastname: '',
     std_classroom: '',
     std_number: 0,
-    std_dormitory: '',
-    act_advices: '',
+    std_email: '',
     tch_firstname: '',
     tch_lastname: '',
-    act_advices_date: '',
-    act_created: '',
-    act_updated: '',
-    flag: 0
+    tch_email: '',
+    act_create: '',
+    act_update: '',
+    school: '',
+    flag: ''
 }
 
 const initialvalidateAct:ValidateAct = {
     act_date: false,
     act_head: false,
     act_print: false,
-    act_hours: false,
-    act_places: false,
-    act_details: false,
-    act_feels: false,
-    act_time_starts: false,
-    act_time_ends: false
+    act_hour: false,
+    act_place: false,
+    act_detail: false,
+    act_feel: false,
+    act_time_start: false,
+    act_time_end: false
 }
 
 const headerCSV = [

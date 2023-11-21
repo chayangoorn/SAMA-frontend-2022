@@ -21,10 +21,10 @@ import activityType from "../../redux/activityType";
 import ListBackground from "../../components/ListBackground";
 
 const ResultPage: React.FC = () => {
-    const { id } = useParams<{ id : string }>();
+  const { id } = useParams<{ id : string }>();
   const router = useIonRouter();
-    const dispatch = useDispatch<AppDispatch>()
-    const achieve = useSelector((state: RootState) => state.achieveData)
+  const dispatch = useDispatch<AppDispatch>()
+  const achieve = useSelector((state: RootState) => state.achieveData)
   const navigateBack = () => {
     if (router.canGoBack()) {
       router.goBack();
@@ -41,19 +41,18 @@ const ResultPage: React.FC = () => {
   const linkpic = 'https://pcshsptsama.com/www/profile/'
   const [user, setUser] = useState<StudentUser>()
   const getStudent = async () => {
-    await axios.post("https://pcshsptsama.com/www/login.php", JSON.stringify({std_ID: id}))
+    await axios.get('https://2r5zg4uzoh.execute-api.ap-northeast-2.amazonaws.com/Dev/data/'+id)
     .then((res) => {
         const userData: StudentUser = {
-            user_id: res.data.user_id,
-            std_id: res.data.std_ID,
-            firstname: res.data.std_firstname,
-            lastname: res.data.std_lastname,
-            classroom: res.data.std_classroom,
-            number: res.data.std_number,
-            dormitory: res.data.std_dormitory,
-            img_path: res.data.img_path,
-            email: res.data.std_email,
-            flag: res.data.flag
+            std_id: res.data[0].id,
+            firstname: res.data[0].std_firstname,
+            lastname: res.data[0].std_lastname,
+            classroom: res.data[0].std_classroom,
+            number: res.data[0].std_number,
+            img_path: '',
+            email: res.data[0].std_email,
+            school: res.data[0].school,
+            flag: res.data[0].flag
         }
         setUser(userData)
     })
@@ -82,20 +81,20 @@ const ResultPage: React.FC = () => {
             } className="w-40 h-40 rounded-full border-white border-8 -mt-10 -ml-10"/>
             <div>
               <p className="pt-4 ml-5 font-bold text-lg">{user?.firstname} {user?.lastname}</p>
-              <p className="ml-5 text-sm">M.{user?.classroom} No.{user?.number} ID:{id}</p>
+              <p className="ml-5 text-sm">M.{user?.classroom} No.{user?.number} ID:{user?.std_id}</p>
             </div>
           </div>
         </div>
         <div className="mx-auto container p-5 px-8 mt-8">
             <h1 className="text-xl font-bold mb-2 mt-2">สถิติการทำกิจกรรม</h1>
             {['01', '02', '03', '11', '12', '13'].map((type, index) => {
-               return <ListComponent key={index} label={activityType[type]} point={achieve.points[type]} type={labels[index]} student={false}></ListComponent>
+               return <ListComponent key={index} label={activityType[type]} point={achieve.points[type][2]} type={labels[index]} student={false}></ListComponent>
             })}
             <h1 className="text-xl font-bold my-5">ดูรายละเอียดกิจกรรม</h1>
             {['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13'].map((value,index) => {
-                return <ListBackground key={index} act={value} navigate={() => pushNavigate(`${value}/${id}`)}></ListBackground>
+                return <ListBackground key={index} act={value} navigate={() => pushNavigate(`${user?.school}/${value}/${id}`)}></ListBackground>
             })}
-        </div>
+        </div><br /><br />
       </IonContent>
     </IonPage>
   );

@@ -1,4 +1,4 @@
-import { IonPage, IonContent, IonHeader, IonToolbar, IonIcon, IonSelect, IonSelectOption, useIonAlert } from "@ionic/react";
+import { IonPage, IonContent, IonHeader, IonToolbar, IonIcon, IonSelect, IonSelectOption, useIonAlert, useIonLoading } from "@ionic/react";
 import { chevronBack } from "ionicons/icons";
 import { useIonRouter } from "@ionic/react";
 import classroom from "../../redux/classroom";
@@ -8,6 +8,9 @@ import { useState, useEffect } from "react";
 import StateSvg from '../../components/assets/stats-chart.svg';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { FileOpener } from '@awesome-cordova-plugins/file-opener'
+import { RootState } from "../../redux/store";
+import { useSelector } from 'react-redux'
+import { Http, HttpDownloadFileResult } from '@capacitor-community/http';
 
 const SearchPage: React.FC = () => {
     const router = useIonRouter()
@@ -17,17 +20,18 @@ const SearchPage: React.FC = () => {
         }
     };
     const [present] = useIonAlert();
+    const userData = useSelector((state: RootState) => state.userData)
     const [room, setRoom] = useState<string>()
-    const [loading, setLoading] = useState(false)
+    const [presentLoad, dismiss] = useIonLoading();
+    //const [loading, setLoading] = useState(false)
     const [listName, setListName] = useState<Array<any>>()
     const getName = async () => {
-        await axios.post('https://pcshsptsama.com/www/selectname.php',
-        JSON.stringify({classroom: room}))
+        await axios.get(`https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${userData.user.school}/list?type=STD&classroom=${room}`)
         .then((res) => {
             setListName(res.data)
         })
     }
-
+    /*
     const writeSecretFile = async (filename: string, data: string) => {
       try {
         await Filesystem.mkdir({
@@ -61,6 +65,7 @@ const SearchPage: React.FC = () => {
       });
     };
 
+
     const getClassPoints = async () => {
       if (!loading) {
         setLoading(true)
@@ -71,22 +76,53 @@ const SearchPage: React.FC = () => {
       }
     }
 
+
+    const convertBlobtoBase64 = (blob: Blob) => new Promise((resolve, reject) => {
+      const reader = new FileReader
+      reader.onerror = reject
+      reader.onload = () => {
+        resolve(reader.result)
+      }
+      reader.readAsDataURL(blob)
+    })
+    */
+
+    const downloadFile = async (filename:string, url:string) => {
+      const options = {
+        url: url,
+        filePath: 'report/'+filename,
+        fileDirectory: Directory.Documents,
+        method: 'GET',
+      };
+    
+      const response: HttpDownloadFileResult = await Http.downloadFile(options);
+
+      return response.path as string
+    };
+
     const download = async () => {
+      presentLoad({
+        message: 'Downloading...',
+      });
       //console.log("download")
       if (room) {
-        const url = 'https://pcshsptsama.com/www/report/download.php';
-        const filename = room[0]+"-"+room[2]+"-report.csv"
-        console.log(filename)
-        await axios.post(url, JSON.stringify({filename: filename})).then( async (res) => {
-          //console.log(res.data)              
-          const file = await writeSecretFile(filename, res.data as string)
-          FileOpener.open(file!.uri, "text/csv")
-          present({
-            message: 'ดาวน์โหลดเสร็จสิ้น คุณสามารถดูรายละเอียดได้ที่ Documents Folder',
-            buttons: [
-              { text: 'OK'},
-            ],
-          })
+        const url = 'https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/'+userData.user.school+'/file?type='+room
+        const filename = "stat_"+room[0]+"."+room[2]+".xlsx"
+        await axios.get(url).then( async (res: any) => {
+            console.log(res.data)
+            const filepath = await downloadFile(filename, res.data.url.split("?")[0])
+            //writeSecretFile(filename, base64)
+            //const file = await writeSecretFile(filename, res.data as string)
+            dismiss().then(() => {
+              FileOpener.open(filepath, "text/csv")
+              present({
+                message: 'ดาวน์โหลดเสร็จสิ้น คุณสามารถดูรายละเอียดได้ที่ Documents Folder',
+                buttons: [
+                  { text: 'OK'},
+                ],
+              })
+            }) 
+            
         })
       }
     }
@@ -97,7 +133,6 @@ const SearchPage: React.FC = () => {
 
     useEffect(() => {
         getName()
-        if (room != undefined) getClassPoints()
     }, [room])
 
   return (
@@ -115,7 +150,7 @@ const SearchPage: React.FC = () => {
       <div className="bg-pccp-light-blue w-full h-40">
           <div className="mx-auto container py-5 px-8">
             <div className="font-bold text-4xl mt-2">ค้นหากิจกรรม</div>
-            <div className="font-bold text-lg mb-8">Activities</div>
+            <div className="font-bold text-lg mb-8">Search Activities</div>
             <div className={`mb-2 bg-pccp-light-orange
                 rounded-lg p-3 grid grid-cols-2 flex items-center font-arthiti`}>
                 <label>
@@ -128,7 +163,8 @@ const SearchPage: React.FC = () => {
                     onIonChange={(e) => {
                         setRoom(e.detail.value)
                     }}
-                > 
+                >
+                  <IonSelectOption value="ALL">สถิติทั้งโรงเรียน</IonSelectOption>
                 {classroom.map((option, index) => {
                     return <IonSelectOption key={index} value={option}>{option}</IonSelectOption>
                 })}
@@ -136,16 +172,12 @@ const SearchPage: React.FC = () => {
             </div>
             {room && <div className="bg-gradient-to-r my-4 from-pccp-light-orange to-pccp-blue shadow-md rounded-lg p-0.5">
                 <div className="bg-white h-full py-4 rounded-lg flex justify-center"
-                onClick={() => {
-                  if (!loading) download()
-                }}>
+                onClick={() => {download()}}>
                   <IonIcon
                     icon={StateSvg}
                   ></IonIcon>
                   <h1 className="text-center ml-3 font-bold text-transparent bg-clip-text bg-gradient-to-r from-pccp-orange to-pccp-blue">
-                      {loading ? 'Processing CSV file...' : 
                       <p>Dowload CSV file</p>
-                      }
                   </h1>
                 </div>
               </div>}
@@ -153,7 +185,7 @@ const SearchPage: React.FC = () => {
             {
                 listName?.map((student, index) => {
                     return <ListComponent label={student.std_firstname+" "+student.std_lastname} 
-                    key={index} student={true} img={student.img_path} navigate={() => pushNavigate(student.std_ID)}
+                    key={index} student={true} img={student.img_path} navigate={() => pushNavigate(student.std_email)}
                     ></ListComponent>
                 })
             }

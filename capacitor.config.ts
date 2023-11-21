@@ -4,7 +4,12 @@ const config: CapacitorConfig = {
   appId: 'com.pccp.activitys',
   appName: 'SAMA',
   webDir: 'build',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  plugins: {
+    CapacitorHttp: {
+      enabled: true,
+    },
+  },
 };
 
 export default config;

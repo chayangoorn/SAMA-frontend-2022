@@ -17,30 +17,30 @@ const FormLayoutVisit: React.FC<FormProps> = ({
 }) => {
   return (
     <div className="bg-pccp-light-blue p-5 rounded-lg">
-      <div className={`form-group mb-2 bg-pccp-light-orange ${validation?.act_places ? 'border-red-400 border-2' : ""} rounded-lg p-3`}>
+      <div className={`form-group mb-2 bg-pccp-light-orange ${validation?.act_place ? 'border-red-400 border-2' : ""} rounded-lg p-3`}>
         <label className="form-label inline-block mb-2 text-xs">
           สถานที่ไปศึกษาดูงาน <span className="text-red-600">*</span>
         </label>
         <input
-          value={data?.act_places}
+          value={data?.act_data?.act_place}
           type="text"
           className="form-control block
           w-full py-1.5 text-base bg-clip-padding
           bg-transparent rounded transition ease-in-out m-0 "
           readOnly={read}
-          name="act_places"
+          name="act_place"
           onChange={(e) => {
             if (onChangeHandler) onChangeHandler(e);
           }}
         ></input>
       </div>
-      {validation?.act_places ? <div className="text-red-400 text-xs mb-3">ต้องใส่สถานที่</div> : ""}
+      {validation?.act_place ? <div className="text-red-400 text-xs mb-3">ต้องใส่สถานที่</div> : ""}
       <div className={`form-group mb-2 bg-pccp-light-orange ${validation?.act_head ? 'border-red-400 border-2' : ""} rounded-lg p-3`}>
         <label className="form-label inline-block mb-2 text-xs">
           หัวข้อการศึกษาดูงาน <span className="text-red-600">*</span>
         </label>
         <input
-          value={data?.act_head}
+          value={data?.act_data?.act_head}
           type="text"
           className="form-control block
           w-full py-1.5 text-base bg-clip-padding
@@ -59,7 +59,7 @@ const FormLayoutVisit: React.FC<FormProps> = ({
           วันที่ไปศึกษาดูงาน <span className="text-red-600">*</span>
         </label>
         <input
-          value={data?.act_date}
+          value={data?.act_data?.act_date}
           type="date"
           className="form-control block w-full py-1.5 text-base font-normal bg-transparent
           bg-clip-padding rounded transition ease-in-out m-0"
@@ -71,40 +71,40 @@ const FormLayoutVisit: React.FC<FormProps> = ({
         />
       </div>
       {validation?.act_date ? <div className="text-red-400 text-xs mb-3">ต้องใส่วันที่</div> : ""}
-      <div className={`form-group mb-2 bg-pccp-light-orange ${validation?.act_details ? 'border-red-400 border-2' : ""} rounded-lg p-3`}>
+      <div className={`form-group mb-2 bg-pccp-light-orange ${validation?.act_detail ? 'border-red-400 border-2' : ""} rounded-lg p-3`}>
         <label className="form-label inline-block mb-2 text-xs">
           ความรู้ที่ได้รับโดยสังเขป <span className="text-red-600">*</span>
         </label>
         <textarea
-          value={data?.act_details}
+          value={data?.act_data?.act_detail}
           className="form-control block
           w-full py-1.5 text-base bg-clip-padding
           bg-transparent rounded transition ease-in-out m-0"
           readOnly={read}
-          name="act_details"
+          name="act_detail"
           onChange={(e) => {
             if (onChangeAreaHandler) onChangeAreaHandler(e);
           }}
         ></textarea>
       </div>
-      {validation?.act_details ? <div className="text-red-400 text-xs mb-3">ต้องใส่รายละเอียด</div> : ""}
-      <div className={`form-group mb-2 bg-pccp-light-orange ${validation?.act_feels ? 'border-red-400 border-2' : ""} rounded-lg p-3`}>
+      {validation?.act_detail ? <div className="text-red-400 text-xs mb-3">ต้องใส่รายละเอียด</div> : ""}
+      <div className={`form-group mb-2 bg-pccp-light-orange ${validation?.act_feel ? 'border-red-400 border-2' : ""} rounded-lg p-3`}>
         <label className="form-label inline-block mb-2 text-xs">
           ความประทับใจ <span className="text-red-600">*</span>
         </label>
         <textarea
-          value={data?.act_feels}
+          value={data?.act_data?.act_feel}
           className="form-control block
           w-full py-1.5 text-base bg-clip-padding
           bg-transparent rounded transition ease-in-out m-0"
           readOnly={read}
-          name="act_feels"
+          name="act_feel"
           onChange={(e) => {
             if (onChangeAreaHandler) onChangeAreaHandler(e);
           }}
         ></textarea>
       </div>
-      {validation?.act_feels ? <div className="text-red-400 text-xs mb-3">ต้องใส่ความประทับใจ</div> : ""}
+      {validation?.act_feel ? <div className="text-red-400 text-xs mb-3">ต้องใส่ความประทับใจ</div> : ""}
     </div>
   );
 };

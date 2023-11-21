@@ -16,7 +16,7 @@ import { AppDispatch, RootState } from '../../redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { fetchActivitiesByID } from "../../redux/features/activityDataSlice";
+import { fetchActivitiesByIDAT } from "../../redux/features/activityDataSlice";
 import activityType from "../../redux/activityType";
 import { ActData, StudentUser } from "../../redux/type";
 
@@ -58,13 +58,13 @@ const ActivitiesPage: React.FC = () => {
     }
     
   }
-
+  
   useIonViewWillEnter(() => {
-    dispatch(fetchActivitiesByID([student.std_id, index]))
+    dispatch(fetchActivitiesByIDAT([index, student.school, student.email,]))
   })
 
   useEffect(() => {
-    dispatch(fetchActivitiesByID([student.std_id, index]))
+    dispatch(fetchActivitiesByIDAT([index, student.school, student.email,]))
   }, [])
 
   const onClickSelect = (e: React.MouseEvent<HTMLDivElement>, data: ActData, select: boolean, index: number) => {

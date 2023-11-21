@@ -10,7 +10,7 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 13,
+      "versionCode": 15,
       "versionName": "2.0.0",
       "outputFile": "AndroidManifest.xml"
     }

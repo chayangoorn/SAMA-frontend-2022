@@ -15,13 +15,25 @@ const initialState = {
 
 export const fetchActivitiesByID = createAsyncThunk<ActData[],Array<string>>(
   'activity/fetchActivitiesByID',
-  async ([ stdID, act_type] , thunkAPI) => {
+  async ([school, email] , thunkAPI) => {
     //const token = await auth.currentUser?.getIdToken()
     //const uid = auth.currentUser?.uid
-      const respones: any = await axios.post('https://pcshsptsama.com/www/get-activities.php', JSON.stringify(
-        {
-          std_ID: stdID, act_type: act_type, //token: token, uid: uid
-        }))
+      const respones: any = await axios.get('https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/'+school+"/"+email+"/rec")
+      if (respones.status === 200) {
+          return respones.data;
+      } else {
+          return thunkAPI.rejectWithValue(respones.statusText);
+      }
+  }
+);
+
+export const fetchActivitiesByIDAT = createAsyncThunk<ActData[],Array<string>>(
+  'activity/fetchActivitiesByIDAT',
+  async ([ act_type, school, email] , thunkAPI) => {
+    //const token = await auth.currentUser?.getIdToken()
+    //const uid = auth.currentUser?.uid
+    console.log(act_type, school, email)
+      const respones: any = await axios.get('https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/'+school+"/"+email+"/rec?act_type="+act_type)
       if (respones.status === 200) {
           return respones.data;
       } else {
@@ -49,6 +61,18 @@ export const ActDataSlice = createSlice({
       state = initialState
     })
     builder.addCase(fetchActivitiesByID.pending, (state) => {
+      state.loading = true
+    })
+    builder.addCase(fetchActivitiesByIDAT.fulfilled, (state, { payload }) => {
+      state.loading = false
+      state.data = payload
+    })
+    builder.addCase(fetchActivitiesByIDAT.rejected, (state) => {
+      state.loading = false
+      console.log('error')
+      state = initialState
+    })
+    builder.addCase(fetchActivitiesByIDAT.pending, (state) => {
       state.loading = true
     })
   }

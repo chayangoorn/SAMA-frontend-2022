@@ -3,6 +3,7 @@ import axios from "axios";
 import { StudentUser, TeacherUser } from "../type";
 import { auth } from "../../Firebase/firebase";
 
+
 interface UserState {
     user: StudentUser | TeacherUser
     loading: boolean
@@ -13,35 +14,35 @@ const initialState = {
     loading: false
 } as UserState
 
-export const fetchUserBytoken = createAsyncThunk<StudentUser | TeacherUser,string | null | undefined>(
+export const fetchUserBytoken = createAsyncThunk<StudentUser | TeacherUser, Array<string|null|undefined>>(
     'users/fetchUserByToken',
-    async (email , thunkAPI) => {
+    async ([email, school], thunkAPI) => {
         //const token = await auth.currentUser?.getIdToken()
         //const uid = auth.currentUser?.uid
-        const respones: any = await axios.post('https://pcshsptsama.com/www/login.php', JSON.stringify({email: email, /*token: token, uid: uid*/}))
+        const respones: any = await axios.get('https://2r5zg4uzoh.execute-api.ap-northeast-2.amazonaws.com/Dev/data/'+email)
         if (respones.status === 200) {
             let data: StudentUser | TeacherUser
-            if (respones.data['flag'] === '0') {
+            let user = respones.data[0]
+            if (user['type'] === "STD") {
                 data = {
-                    user_id: respones.data['user_id'],
-                    std_id: respones.data['std_ID'],
-                    firstname: respones.data['std_firstname'],
-                    lastname: respones.data['std_lastname'],
-                    classroom: respones.data['std_classroom'],
-                    number: respones.data['std_number'],
-                    dormitory: respones.data['std_dormitory'],
-                    img_path: respones.data['img_path'],
-                    email: respones.data['std_email'],
-                    flag: respones.data['flag'] 
+                    std_id: user['id'],
+                    firstname: user['std_firstname'],
+                    lastname: user['std_lastname'],
+                    classroom: user['std_classroom'],
+                    number: user['std_number'],
+                    img_path: '',
+                    school: user['school'],
+                    email: user['std_email'],
+                    flag: user['type'] 
                 } 
             } else {
                 data = {
-                    user_id: respones.data['user_id'],
-                    firstname: respones.data['tch_firstname'],
-                    lastname: respones.data['tch_lastname'],
-                    img_path: respones.data['tch_img'],
-                    email: respones.data['tch_email'],
-                    flag: respones.data['flag'] 
+                    firstname: user['tch_firstname'],
+                    lastname: user['tch_lastname'],
+                    img_path: '',
+                    email: user['tch_email'],
+                    school: user['school'],
+                    flag: user['type'] 
                 }
             }
             return data;

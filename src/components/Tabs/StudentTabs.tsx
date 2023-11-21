@@ -76,8 +76,8 @@ const StudentTabs: React.FC = () => {
     <IonTabs>
       <IonRouterOutlet>
         <Route path="/record/:form" component={FormPage} exact />
-        <Route path="/record/send/:id" component={SelectTeacherPage} exact />
-        <Route path="/manage/edit/:form/send/:id" component={SelectTeacherPage} exact />
+        <Route path="/record/send/:id/:status" component={SelectTeacherPage} exact />
+        <Route path="/manage/edit/:form/send/:id/:status" component={SelectTeacherPage} exact />
         <Route path="/manage/:index" component={ActivitiesPage} exact />
         <Route path="/send/:id" component={SelectTeacherPage} exact />
         <Route path="/manage/edit/:form/:id" component={FormPage} exact />

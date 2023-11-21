@@ -15,6 +15,7 @@ ADDED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src
 INJECTED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:2:1-50:12
 INJECTED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:2:1-50:12
 INJECTED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:2:1-50:12
+MERGED from [:capacitor-community-http] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor-community\http\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-app] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-camera] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:capacitor-filesystem] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\filesystem\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
@@ -174,6 +175,8 @@ uses-sdk
 INJECTED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml
+MERGED from [:capacitor-community-http] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor-community\http\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-community-http] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor-community\http\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-app] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-app] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-camera] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41

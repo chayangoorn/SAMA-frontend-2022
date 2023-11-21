@@ -12,21 +12,20 @@ const SignupPage: React.FC = () => {
     firstname: "",
     lastname: "",
     classroom: "",
-    number: "",
+    number: 0,
     id: "",
-    dormitory: "",
+    school: "",
     email: "",
     password: "",
     confirmPassword: "",
-    method: "register"
   });
   const [validate, setValidate] = useState({
     firstname: false,
     lastname: false,
     classroom: false,
     number: false,
-    dormitory: false,
     id: false,
+    school: false,
     email: false,
     password: false,
     confirmPassword: false,
@@ -70,11 +69,22 @@ const SignupPage: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(signUp)
+    let signupdata = {
+      email : signUp.email,
+      school : signUp.school,
+      type : "STD",
+      id: signUp.id,
+      firstname : signUp.firstname,
+      lastname : signUp.lastname,
+      classroom : signUp.classroom,
+      number : Number(signUp.number)
+    }
     validateForm().then(async (val) => {
       if (!val) {
-        await axios.post('https://pcshsptsama.com/www/register.php', JSON.stringify(signUp))
+        await axios.post('https://2r5zg4uzoh.execute-api.ap-northeast-2.amazonaws.com/Dev/regis', JSON.stringify(signupdata))
         .then(async (res) => {
-          if (res.data === "This user already exists in the system.") {
+          if (res.data === "Account already exists") {
             present({
               message: res.data,
               buttons: [
@@ -116,14 +126,14 @@ const SignupPage: React.FC = () => {
     setSignUp(newSignUp);
   };
 
-  const onChangeSelectDormHandler = (event: CustomEvent<SelectChangeEventDetail>) => {
+  const onChangeSelectSchoolHandler = (event: CustomEvent<SelectChangeEventDetail>) => {
     let newSignUp: any = {...signUp}
     let newValidate: any = {...validate}
-    newSignUp['dormitory'] = event.detail.value
-    if (newSignUp['dormitory'] === "") {
-      newValidate['dormitory'] = true
+    newSignUp['school'] = event.detail.value
+    if (newSignUp['school'] === "") {
+      newValidate['school'] = true
     } else {
-      newValidate['dormitory'] = false
+      newValidate['school'] = false
     }
     setValidate(newValidate)
     setSignUp(newSignUp)
@@ -193,35 +203,32 @@ const SignupPage: React.FC = () => {
                     return <IonSelectOption key={index} value={option}>{option}</IonSelectOption>
                 })}
                 </IonSelect>
-                <hr className={`${validate.dormitory ? "border-red-400" : "border-black"} border-1`}/>
+                <hr className={`${validate.school ? "border-red-400" : "border-black"} border-1`}/>
                   {validate.classroom && <label className="text-red-400 text-xs">please fill classroom</label>}
                 </div>
                 <div className="text-sm">
-                  <IonSelect placeholder="Dormitory" value={signUp.dormitory}
-                  onIonChange={e => onChangeSelectDormHandler(e)}
+                  <IonSelect placeholder="School" value={signUp.school}
+                  onIonChange={e => onChangeSelectSchoolHandler(e)}
                   style={{
                     '--placeholder-opacity': '80%',
                     "--padding-bottom":"5px",
                     "--padding-top":"0",
                     "--padding-start":"0",
                   }}>
-                    <IonSelectOption value="เขียว">เขียว</IonSelectOption>
-                    <IonSelectOption value="ม่วง">ม่วง</IonSelectOption>
-                    <IonSelectOption value="ชมพู">ชมพู</IonSelectOption>
-                    <IonSelectOption value="ฟ้า">ฟ้า</IonSelectOption>
-                    <IonSelectOption value="เหลือง">เหลือง</IonSelectOption>
-                    <IonSelectOption value="น้ำตาล">น้ำตาล</IonSelectOption>
+                    <IonSelectOption value="PCSHS-PT">PCSHS-PT</IonSelectOption>
+                    <IonSelectOption value="PCSHS-LOEI">PCSHS-LOEI</IonSelectOption>
                   </IonSelect>
-                  <hr className={`${validate.dormitory ? "border-red-400" : "border-black"} border-1`}/>
-                  {validate.dormitory && <label className="text-red-400 text-xs">please select dormitory</label>}
+                  <hr className={`${validate.school ? "border-red-400" : "border-black"} border-1`}/>
+                  {validate.school && <label className="text-red-400 text-xs">please select school</label>}
               </div>
               </div>
               <div className="grid grid-cols-2 gap-3 mb-3">
               <div className="form-group">
                   <FloatingInput
                     label="Number"
-                    type="number"
+                    type="text"
                     name="number"
+                    length={2}
                     onChangeHandler={onChangeInputHandler}
                     err={validate.number}
                   ></FloatingInput>

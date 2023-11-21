@@ -25,6 +25,7 @@ import { person } from "ionicons/icons";
 import { FileTransfer, FileTransferObject, FileUploadOptions } from '@awesome-cordova-plugins/file-transfer'
 import { Camera, CameraSource, CameraResultType, ImageOptions } from '@capacitor/camera'
 import { auth } from "../Firebase/firebase";
+import { Storage } from '@capacitor/storage';
 
 const ProfilePage: React.FC = () => {
   const modal = useRef<HTMLIonModalElement>(null);
@@ -33,27 +34,29 @@ const ProfilePage: React.FC = () => {
   const token = auth.currentUser?.getIdToken()
   const uid = auth.currentUser?.uid
   const [pic, setPic] = useState<string>()
+  const [school, setSchool] = useState('')
   const [presentAction] = useIonActionSheet()
   const dispatch = useDispatch<AppDispatch>()
   const userData = useSelector((state: RootState) => state.userData)
   let student = userData.user as StudentUser
   let teacher = userData.user as TeacherUser
   const user = useContext(AuthContext);
+  const getSchool = async () => {
+    const sch = await Storage.get({ key: 'userSchool' });
+    setSchool(JSON.parse(JSON.stringify(sch.value)))
+  }
   const [stdProfile, setStdProfile] = useState({
     firstname: student.firstname,
     lastname: student.lastname,
     classroom: student.classroom,
     number: student.number,
-    dormitory: student.dormitory,
-    user_id: student.user_id,
-    flag: '0',
+    flag: 'STD',
     method: "update-profile"
   });
   const [tchProfile, setTchProfile] = useState({
     firstname: teacher.firstname,
     lastname: teacher.lastname,
-    user_id: teacher.user_id,
-    flag: '2',
+    flag: 'TCH',
     method: "update-profile"
   });
   const [validate, setValidate] = useState({
@@ -65,12 +68,9 @@ const ProfilePage: React.FC = () => {
   });
 
   useEffect(() => {
-    dispatch(fetchUserBytoken(user?.email))
+    getSchool()
+    dispatch(fetchUserBytoken([user?.email, school]))
   }, [])
-
-  useIonViewWillEnter(() => {
-    dispatch(fetchUserBytoken(user?.email))
-  })
 
   const validateForm = async () => {
     let asArray = []
@@ -99,8 +99,10 @@ const ProfilePage: React.FC = () => {
     validateForm().then(async (val) => {
       if (!val) {
         let data:any = {}
-        if (Number(userData.user.flag) === 0) {data = stdProfile} else {data = tchProfile}
+        if (userData.user.flag === "STD") {data = stdProfile} else {data = tchProfile}
+        console.log(data)
         //data.token = token; data.uid = uid
+        /*
           await axios.post('https://pcshsptsama.com/www/register.php', JSON.stringify(data))
           .then((res) => {
             present({
@@ -120,6 +122,7 @@ const ProfilePage: React.FC = () => {
               ],
             })
           })
+          */
       }
     })
   };
@@ -151,19 +154,6 @@ const ProfilePage: React.FC = () => {
     
   }
 
-  const onChangeSelectDormHandler = (event: CustomEvent<SelectChangeEventDetail>) => {
-    let newProfile: any = {...stdProfile}
-    let newValidate: any = {...validate}
-    newProfile['dormitory'] = event.detail.value
-    if (newProfile['dormitory'] === "") {
-      newValidate['dormitory'] = true
-    } else {
-      newValidate['dormitory'] = false
-    }
-    setValidate(newValidate)
-    setStdProfile(newProfile)
-  }
-
   const onChangeSelectClassHandler = (event: CustomEvent<SelectChangeEventDetail>) => {
     let newProfile: any = {...stdProfile}
     let newValidate: any = {...validate}
@@ -192,7 +182,7 @@ const ProfilePage: React.FC = () => {
               fileTransfer = FileTransfer.create() 
               let option: FileUploadOptions = {
                 fileKey: 'file',
-                fileName: userData.user.user_id+"."+result.format,
+                fileName: userData.user.email+"."+result.format,
                 chunkedMode: false,
                 headers: {},
                 mimeType: "image/"+result.format
@@ -200,7 +190,7 @@ const ProfilePage: React.FC = () => {
               fileTransfer.upload(result.dataUrl as string, "https://pcshsptsama.com/www/uppic.php", option)
               .then(async (res) => {
                 let data: any = {
-                  id: userData.user.user_id,
+                  id: userData.user.email,
                   flag: userData.user.flag,
                 }
                 //data.uid = uid
@@ -231,17 +221,18 @@ const ProfilePage: React.FC = () => {
               <div className="w-40 h-40 blur-lg rounded-full bg-gradient-to-r from-pccp-light-orange to-pccp-blue grid place-items-center">
                 <img className="object-cover w-32 h-32 rounded-full inset-0" src={ userData.user.img_path ?
                   linkpic+userData.user.img_path : blank
-                  } onClick={changeProfile}/>
+                  }/>
               </div>
           </div>
-          <div className="text-center text-lg font-bold">
+          <div className="text-center font-bold">{school}</div>
+          <div className="text-center text-xl font-bold">
             {
-              Number(userData.user.flag) === 0 ? 
+              userData.user.flag === "STD" ? 
               <p>{student.firstname} {student.lastname}</p> : <p>{teacher.firstname} {teacher.lastname}</p>
             }
           </div>
           {
-            Number(userData.user.flag) === 0 && 
+            userData.user.flag === "STD" && 
             <div className="flex justify-center">
               <div className="text-sm flex justify-between w-1/2 mb-8">
                 <div>M.{student.classroom}</div>
@@ -252,7 +243,7 @@ const ProfilePage: React.FC = () => {
           }
           <img src={pic} />
           <div className="mx-3 mt-5">
-            <MenuList email={userData.user.email} user_id={userData.user.user_id} flag={userData.user.flag.toString()}></MenuList>
+            <MenuList email={userData.user.email} user_id={userData.user.email} flag={userData.user.flag.toString()}></MenuList>
           </div>
         </div>
         <IonModal ref={modal} trigger="open-modal">
@@ -279,7 +270,7 @@ const ProfilePage: React.FC = () => {
                     label="Firstname (TH)"
                     type="text"
                     name="firstname"
-                    value={ Number(userData.user.flag) === 0 ?
+                    value={ userData.user.flag === "STD" ?
                       stdProfile.firstname : tchProfile.firstname
                     }
                     onChangeHandler={onChangeInputHandler}
@@ -292,7 +283,7 @@ const ProfilePage: React.FC = () => {
                     label="Lastname (TH)"
                     type="text"
                     name="lastname"
-                    value={ Number(userData.user.flag) === 0 ?
+                    value={ userData.user.flag === "STD" ?
                       stdProfile.lastname : tchProfile.lastname
                     }
                     onChangeHandler={onChangeInputHandler}
@@ -301,7 +292,7 @@ const ProfilePage: React.FC = () => {
                   {validate.lastname && <label className="text-red-400 text-xs">please fill lastname</label>}
                 </div>
               </div>
-              {Number(userData.user.flag) === 0 && 
+              {userData.user.flag === "STD" && 
                 <div className="grid grid-cols-2 gap-3 mb-3">
                   <div className="form-group text-sm">
                     <IonSelect
@@ -322,7 +313,7 @@ const ProfilePage: React.FC = () => {
                     <hr className={`${validate.dormitory ? "border-red-400" : "border-black"} border-1`}/>
                     {validate.classroom && <label className="text-red-400 text-xs">please fill classroom</label>}
                   </div>
-                  <div className="text-sm">
+                 {/* <div className="text-sm">
                     <IonSelect placeholder={stdProfile.dormitory}
                       onIonChange={e => onChangeSelectDormHandler(e)}
                       style={{
@@ -340,10 +331,10 @@ const ProfilePage: React.FC = () => {
                     </IonSelect>
                     <hr className={`${validate.dormitory ? "border-red-400" : "border-black"} border-1`}/>
                     {validate.dormitory && <label className="text-red-400 text-xs">please select dormitory</label>}
-                  </div>
+                    </div> */}
                 </div>
               }
-              {Number(userData.user.flag) === 0 && 
+              {userData.user.flag === "STD" && 
               <div className="grid grid-cols-2 gap-3 mb-3">
                 <div className="form-group">
                   <FloatingInput

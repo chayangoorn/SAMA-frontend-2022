@@ -15,7 +15,7 @@ const AchievePage: React.FC = () => {
   const achieves = useSelector((state: RootState) => state.achieveData)
 
   useEffect(() => {
-    dispatch(fetchAchieveByID(student.std_id))
+    dispatch(fetchAchieveByID(student.email))
   }, [dispatch])
 
   return (
@@ -25,7 +25,7 @@ const AchievePage: React.FC = () => {
           <div className="text-2xl font-bold mt-3 mb-8">Achievement</div>
           <div className="bg-pccp-light-blue rounded-lg p-5">
             {acttype.map((val, index) => {
-              return <AchieveList key={index} label={activityType[val]} point={achieves.points[val]} types={val}></AchieveList>
+              return <AchieveList key={index} label={activityType[val]} point={achieves.points[val][2]} types={val}></AchieveList>
             })}
           </div>  
         </div>

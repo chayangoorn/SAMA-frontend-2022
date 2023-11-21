@@ -13,10 +13,10 @@ const MenuPage: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        <div className="bg-pccp-light-blue w-full h-48">
+        <div className="bg-pccp-light-blue w-full h-52">
           <div className="mx-auto container py-5 px-8">
-            <div className="font-bold text-4xl mt-5">กิจกรรม</div>
-            <div className="font-bold text-lg mb-8">Activities</div>
+            <div className="font-bold text-4xl mt-5">เมนูกิจกรรม</div>
+            <div className="font-bold text-lg mb-8 mt-2">Activities Menu</div>
             <div className="grid grid-cols-2 gap-x-5">
               <div className="bg-gradient-to-r from-pccp-light-orange to-pccp-blue shadow-lg rounded-lg p-1">
                 <div className="bg-white h-full py-5 grid justify-items-center gap-y-5 rounded-lg"

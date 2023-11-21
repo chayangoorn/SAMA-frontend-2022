@@ -29,10 +29,10 @@ const ManageList: React.FC<ManageListProps> = ({
     const [select, setSelect] = useState(choose)
 
     const status: any = {
-        0: ["", "", radioButtonOffOutline],
-        1: ["primary", "border-2 border-primary shadow", arrowForwardCircleOutline],
-        3: ["success", "border-2 border-success shadow", checkmarkCircleOutline],
-        4: ["danger", "border-2 border-danger shadow", removeCircleOutline],
+        "PENDING": ["", "", radioButtonOffOutline],
+        "SEND": ["primary", "border-2 border-primary shadow", arrowForwardCircleOutline],
+        "ACCEPT": ["success", "border-2 border-success shadow", checkmarkCircleOutline],
+        "REJECT": ["danger", "border-2 border-danger shadow", removeCircleOutline],
   };
 
   return (
@@ -40,7 +40,7 @@ const ManageList: React.FC<ManageListProps> = ({
       <div className={`bg-pccp-light-orange p-3 gap-x-3 rounded-lg grid grid-cols-6 flex items-stretch 
       ${select ? "border-2 border-black" : status[data.flag][1]}`}>
         <div className="self-center text-center" onClick={e => {
-            if (Number(data.flag) === 0 || Number(data.flag) === 4)
+            if (data.flag === "PENDING" || data.flag === "REJECT")
             setSelect(!select) 
             onClickSelect(e, data, !select, index)
             }}>

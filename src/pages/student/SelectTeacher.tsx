@@ -4,58 +4,78 @@ import {
   IonToolbar,
   IonIcon,
   IonHeader,
-  useIonViewDidEnter,
-  IonList,
-  IonItem
+  useIonAlert
 } from "@ionic/react";
 import { chevronBack } from "ionicons/icons";
 import { useIonRouter } from "@ionic/react";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import blank from '../../assets/blankprofile.png'
 import { useParams } from "react-router";
+import { RootState, AppDispatch } from "../../redux/store";
+import { useSelector, useDispatch } from 'react-redux'
+import { StudentUser } from "../../redux/type";
 
 const SelectTeacherPage: React.FC = () => {
     const [teachers, setTeachers] = useState<Array<any>>()
-    const { id } = useParams<{ id : string }>();
+    const { id, status } = useParams<{ id : string, status: string }>();
     const act_ids = id.split("&")
     const router = useIonRouter();
-
+    const [present] = useIonAlert()
+    const userData = useSelector((state: RootState) => state.userData)
+    let student = userData.user as StudentUser
     const Back = () => {
         if (router.canGoBack()) {
-          router.goBack();
+          if (status === "update") {
+            router.push("/manage", "back", "pop");
+          } else if (status === "create") {
+            router.push("/record", "back", "pop");
+          }
+          
         }
     };
 
-  useIonViewDidEnter(() => {
-    console.log(act_ids)
+  useEffect(() => {
     teacher()
-  })
+  }, [])
 
   const teacher = async () => {
-    await axios.get('https://pcshsptsama.com/www/teacher.php')
+    await axios.get(`https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${student.school}/list?type=TCH`)
     .then((res) => {
         setTeachers(res.data)
     })
   }
 
   const onSelect = async (teacher: any) => {
-    act_ids.forEach( async (id, index) => {
-        await axios.post('https://pcshsptsama.com/www/send.php', 
-        JSON.stringify({
-            act_id: id,
-            flag: 1,
-            tch_id: teacher.user_id,
-            tch_firstname: teacher.tch_firstname,
-            tch_lastname: teacher.tch_lastname
-        }))
+    let sendData = {
+      flag: "SEND",
+      tch_name: teacher.tch_firstname+" "+teacher.tch_lastname,
+      tch_email: teacher.tch_email
+    }
+    console.log(sendData)
+    try {
+      act_ids.forEach( async (id, index) => {
+        await axios.post(`https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${student.school}/${student.email}/rec/${id}`, 
+        JSON.stringify(sendData))
         .then((res) => {
             console.log(res)
             if (index === act_ids.length-1) {
+              present({
+                message: "ส่งเรียบร้อย",
+                buttons: ["OK"]
+              })
                 Back()
             }
         })
-    })
+      })
+    } catch {
+      present({
+        message: "การส่งผิดพลาด",
+        buttons: ["OK"]
+      })
+      Back()
+    }
+    
   }
 
   const linkpic = 'https://pcshsptsama.com/www/profile/'

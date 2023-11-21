@@ -99,11 +99,11 @@ const ListBackground: React.FC<ListComponentProps> = ({
 
   const [open, setOpen] = useState(false);
 
-  const onCheck = async (id: number, e: React.MouseEvent<HTMLDivElement>) => {
+  const onCheck = async (id: string, e: React.MouseEvent<HTMLDivElement>) => {
     await axios
       .post(
-        "https://pcshsptsama.com/www/update-act.php",
-        JSON.stringify({ act_id: id, flag: 3 })
+        `https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${data?.school}/${data?.std_email}/rec/${id}`,
+        JSON.stringify({ flag: "ACCEPT" })
       )
       .then((res) => {
         console.log(res);
@@ -112,11 +112,11 @@ const ListBackground: React.FC<ListComponentProps> = ({
       });
   };
 
-  const onWrong = async (id: number, e: React.MouseEvent<HTMLDivElement>) => {
+  const onWrong = async (id: string, e: React.MouseEvent<HTMLDivElement>) => {
     await axios
       .post(
-        "https://pcshsptsama.com/www/update-act.php",
-        JSON.stringify({ act_id: id, flag: 4 })
+        `https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${data?.school}/${data?.std_email}/rec/${id}`,
+        JSON.stringify({ flag: "REJECT" })
       )
       .then((res) => {
         console.log(res);
@@ -200,7 +200,7 @@ const ListBackground: React.FC<ListComponentProps> = ({
                 ครูผู้ตรวจ
               </label>
               <input
-                value={data?.tch_firstname + " " + data?.tch_lastname}
+                value={data?.tch_name?.split(" ")[0] + " " + data?.tch_name?.split(" ")[1]}
                 type="text"
                 className="form-control col-span-2 block w-full py-1.5 text-base bg-transparent rounded"
                 readOnly={true}
@@ -213,20 +213,7 @@ const ListBackground: React.FC<ListComponentProps> = ({
                 สร้างเมื่อ
               </label>
               <input
-                value={data?.act_created}
-                type="text"
-                className="form-control col-span-2 block w-full py-1.5 text-base bg-transparent rounded"
-                readOnly={true}
-              ></input>
-            </div>
-            <div
-              className={`form-group mx-5 mb-5 bg-pccp-light-orange rounded-lg p-3 grid grid-cols-3 flex items-center`}
-            >
-              <label className="form-label inline-block col-span-1">
-                ตรวจเมื่อ
-              </label>
-              <input
-                value={data?.act_updated}
+                value={data?.act_update}
                 type="text"
                 className="form-control col-span-2 block w-full py-1.5 text-base bg-transparent rounded"
                 readOnly={true}

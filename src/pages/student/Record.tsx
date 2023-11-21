@@ -4,13 +4,14 @@ import { RootState, AppDispatch } from "../../redux/store";
 import { fetchActivitiesByID } from "../../redux/features/activityDataSlice";
 import { fetchUserBytoken } from "../../redux/features/UserDataSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { StudentUser } from "../../redux/type";
+import { Storage } from '@capacitor/storage';
 
 const RecordPage: React.FC = () => {
   const activities = ['01','02','03','04','05','06','07','08','09','10','11','12','13']
-  const times: any = {'01':15,'02':10,'03':5,'04':1,'05':1,'06':1, 
-    '07':1,'08':1,'09':1,'10':1,'11':1,'12':40,'13':90}
+  //const times: any = {'01':15,'02':10,'03':5,'04':1,'05':1,'06':1, 
+    //'07':1,'08':1,'09':1,'10':1,'11':1,'12':40,'13':90}
   const type_acts = useSelector((state: RootState) => state.actData)
   const userData = useSelector((state: RootState) => state.userData.user)
   const student = userData as StudentUser
@@ -18,11 +19,13 @@ const RecordPage: React.FC = () => {
   const router = useIonRouter();
   const dispatch = useDispatch<AppDispatch>()
   const pushNavigate = async (path: string, types: string) => {
-    await dispatch(fetchActivitiesByID([student.std_id, types]))
+    //await dispatch(fetchActivitiesByID([student.std_id, types]))
+    router.push(path, "forward", "push");
+    /*
     if (['01', '02'].includes(types)) {
       let hours = 0
       type_acts.data.forEach(act => {
-        hours+=parseFloat(act.act_hours.toString())
+        hours+=parseFloat(act.act_data?.act_hour.toString())
       });
       if (hours < times[types]) {
         router.push(path, "forward", "push");
@@ -41,13 +44,17 @@ const RecordPage: React.FC = () => {
           buttons: ["OK"]
         })
       }
-    }
-    
-    
+    } */
+  }
+  const [school, setSchool] = useState('')
+  const getSchool = async () => {
+    const sch = await Storage.get({ key: 'userSchool' });
+    setSchool(JSON.parse(JSON.stringify(sch.value)))
   }
 
   useEffect(() => {
-    dispatch(fetchUserBytoken(userData.email))
+    getSchool()
+    dispatch(fetchUserBytoken([userData.email, school]))
   }, [])
 
   return (

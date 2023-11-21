@@ -205,22 +205,28 @@ const MenuList: React.FC<MenuListProps> = ({email, flag, user_id}) => {
     return (
         <div>
             <div className="p-5 grid gap-y-6 w-full bg-gradient-to-r from-pccp-light-orange to-pccp-blue rounded-lg">
-            <div className="flex border-b-2 pb-1" id="open-modal">
-                <div className="ml-3 text-xl"><IonIcon src={create}></IonIcon></div>
-                <div className="ml-5">แก้ไขข้อมูลส่วนตัว</div>
-            </div>
+            { /*
+                <div className="flex border-b-2 pb-1" id="open-modal">
+                    <div className="ml-3 text-xl"><IonIcon src={create}></IonIcon></div>
+                    <div className="ml-5">แก้ไขข้อมูลส่วนตัว</div>
+                </div>
+            */}
+            
             <div className="flex border-b-2 pb-1" onClick={async () => {
                 checkOldPassword(1)
             }}>
                 <div className="ml-3 text-xl"><IonIcon src={lockOpen}></IonIcon></div>
                 <div className="ml-5">เปลี่ยนรหัสผ่าน</div>
             </div>
-            <div className="flex border-b-2 pb-1" onClick={async () => {
-                checkOldPassword(2)
-            }}>
-                <div className="ml-3 text-xl"><IonIcon src={mail}></IonIcon></div>
-                <div className="ml-5">เปลี่ยนอีเมล</div>
-            </div>
+            { /*
+                <div className="flex border-b-2 pb-1" onClick={async () => {
+                    checkOldPassword(2)
+                    }}>
+                    <div className="ml-3 text-xl"><IonIcon src={mail}></IonIcon></div>
+                    <div className="ml-5">เปลี่ยนอีเมล</div>
+                </div>
+            */}
+            
             <div className="flex border-b-2 pb-1" onClick={pushNavigate}>
                 <div className="ml-3 text-xl"><IonIcon src={informationCircle}></IonIcon></div>
                 <div className="ml-5">เกี่ยวกับ</div>

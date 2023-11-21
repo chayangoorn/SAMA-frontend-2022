@@ -58,7 +58,7 @@ const TeacherTabs: React.FC = () => {
       <IonRouterOutlet>
         <Route path="/search" component={SearchPage} exact/>
         <Route path="/search/:id" component={ResultPage} exact/>
-        <Route path="/search/result/:form/:id" component={DetailPage} exact/>
+        <Route path="/search/result/:school/:form/:id" component={DetailPage} exact/>
         <Route path="/sama" component={SamadetailPage}/>
         {tabs.map((tab, index) => {
           return (

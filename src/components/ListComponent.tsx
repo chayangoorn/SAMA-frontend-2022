@@ -32,7 +32,7 @@ const ListComponent: React.FC<ListComponentProps> = ({
                     {img == null || img == "" ? <img src={blank} className="rounded-full w-8 h-8"/> 
                     : <img src={linkpic+img} className="rounded-full w-8 h-8"/> }
                     </div> : (data!=undefined ? (
-                        Number(data?.flag) === 3 ? 
+                        data?.flag === "ACCEPT" ? 
                             <div className="self-center col-span-1">
                                 <IonIcon src={checkmarkOutline}></IonIcon>
                             </div> : 
@@ -47,8 +47,8 @@ const ListComponent: React.FC<ListComponentProps> = ({
                     { label && <p className="truncate">{label}</p>}
                     { data != undefined && 
                         <div>
-                            <p className="truncate text-xs">{"[ "+data.act_updated+" ]"}</p>
-                            <p className="truncate -mt-1.5">{data.act_details}</p>
+                            <p className="truncate text-xs">{"[ "+data.act_update+" ]"}</p>
+                            <p className="truncate -mt-1.5">{data.act_data?.act_detail}</p>
                         </div>
                     }
                 </div>

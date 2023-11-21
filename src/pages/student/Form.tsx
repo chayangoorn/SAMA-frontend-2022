@@ -29,6 +29,7 @@ import { fetchUserBytoken } from "../../redux/features/UserDataSlice";
 import { AuthContext } from "../../Firebase/AuthContext";
 import { initialActData, initialvalidateAct } from "../../redux/initialState";
 import { auth } from "../../Firebase/firebase";
+import { Storage } from '@capacitor/storage';
 
 const FormPage: React.FC = () => {
   const router = useIonRouter();
@@ -39,18 +40,25 @@ const FormPage: React.FC = () => {
   let student = userData.user as StudentUser
   const activities = useSelector((state: RootState) => state.actData.data)
   const [read, setRead] = useState(false)
+  const [flag, setFlag] = useState("PENDING")
   const user = useContext(AuthContext)
   const [actData, setActData] = useState<ActData>(initialActData)
   const [validation, setValidation] = useState<ValidateAct>(initialvalidateAct)
   const dispatch = useDispatch<AppDispatch>()
   const [present] = useIonAlert();
+  const [school, setSchool] = useState('')
+  const getSchool = async () => {
+    const sch = await Storage.get({ key: 'userSchool' });
+    setSchool(JSON.parse(JSON.stringify(sch.value)))
+  }
 
   useEffect(() => {
-    dispatch(fetchUserBytoken(user?.email))
+    getSchool()
+    dispatch(fetchUserBytoken([user?.email, school]))
   }, [dispatch])
 
-  const checkStatus = (flag: number) => {
-    if (Number(flag) === 1 || Number(flag) === 3) {setRead(true)}
+  const checkStatus = (flag: string) => {
+    if (flag === "ACCEPT") {setRead(true)}
   }
 
   useIonViewWillEnter(() => {
@@ -58,21 +66,15 @@ const FormPage: React.FC = () => {
     if (id) {
       const selected = activities.filter((value) => value.act_id.toString() === id)[0]
       checkStatus(selected.flag)
+      setFlag(selected.flag)
       if (['03', '11'].includes(selected.act_type)) {
-        newActData['act_date'] = selected.act_date.slice(0,4)
+        newActData['act_data']['act_date'] = selected.act_data?.act_date?.slice(0,4)
       } else {
-        newActData['act_date'] = selected.act_date
+        newActData['act_data']['act_date'] = selected.act_data?.act_date
       }
       newActData['act_id'] = selected.act_id
       newActData['act_type'] = selected.act_type
-      newActData['act_head'] = selected.act_head
-      newActData['act_print'] = selected.act_print
-      newActData['act_hours'] = selected.act_hours
-      newActData['act_places'] = selected.act_places
-      newActData['act_details'] = selected.act_details
-      newActData['act_feels'] = selected.act_feels
-      newActData['act_time_starts'] = selected.act_time_starts
-      newActData['act_time_ends'] = selected.act_time_ends
+      newActData['act_data'] = selected.act_data
       newActData['flag'] = selected.flag
     } else {
       newActData['std_id'] = student.std_id
@@ -80,7 +82,6 @@ const FormPage: React.FC = () => {
       newActData['std_lastname'] = student.lastname
       newActData['std_classroom'] = student.classroom
       newActData['std_number'] = student.number
-      newActData['std_dormitory'] = student.dormitory
       newActData['act_type'] = form
       newActData['act_type_name'] = activityType[form]
     }
@@ -109,7 +110,7 @@ const FormPage: React.FC = () => {
       case '12' :
         return <FormLayoutExercise onChangeHandler={onChangeActData} validation={validation} data={actData} read={read}></FormLayoutExercise>
       case '13' :
-        return <FormLayoutMeet onChangeHandler={onChangeActData} validation={validation} data={actData}></FormLayoutMeet>
+        return <FormLayoutMeet onChangeHandler={onChangeActData} validation={validation} data={actData} read={read}></FormLayoutMeet>
       default:
         return <div></div>;
     }
@@ -126,36 +127,39 @@ const FormPage: React.FC = () => {
   }
 
   const onChangeActData = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let newActData: any = {...actData}
+    let newAct: any = {...actData}
+    let newActData: any = {...actData.act_data}
     let newValidation: any = {...validation}
-    if (event.target.name === 'act_hours') {
+    if (event.target.name === 'act_hour') {
       newActData[event.target.name] = parseInt(event.target.value)
     } else {
-      newActData[event.target.name] = event.target.value
+      newActData[event.target.name] = event.target.value as string
     }
     if (event.target.value === '') {
       newValidation[event.target.name] = true
-    } else if (event.target.name === 'act_hours' && newActData['act_hours'] === 0) {
-      newValidation['act_hours'] = true
+    } else if (event.target.name === 'act_hour' && newActData['act_hour'] === 0) {
+      newValidation['act_hour'] = true
     } else {
       newValidation[event.target.name] = false
     }
     if (newActData['act_type'] == '12') {
-      if (newActData['act_time_starts'].length == 5) {
-        newActData['act_time_starts'] = newActData['act_time_starts']+":00"
-      } else if (newActData['act_time_ends'].length == 5) {
-        newActData['act_time_ends'] = newActData['act_time_ends']+":00"
+      if (newActData['act_time_start'].length == 5) {
+        newActData['act_time_start'] = newActData['act_time_start']+":00"
+      } else if (newActData['act_time_end'].length == 5) {
+        newActData['act_time_end'] = newActData['act_time_end']+":00"
       }
-      if (newActData['act_time_starts'] !== '' && newActData['act_time_ends'] !== '') {
-        newActData['act_hours'] = calTime(newActData['act_time_starts'], newActData['act_time_ends'])
+      if (newActData['act_time_start'] !== '' && newActData['act_time_end'] !== '') {
+        newActData['act_hour'] = calTime(newActData['act_time_start'], newActData['act_time_end'])
       }
     }
+    newAct.act_data = newActData
     setValidation(newValidation)
-    setActData(newActData)
+    setActData(newAct)
   }
 
   const onChangeAreaActData = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    let newActData: any = {...actData}
+    let newAct: any = {...actData}
+    let newActData: any = {...actData.act_data}
     let newValidation: any = {...validation}
     newActData[event.target.name] = event.target.value
     if (newActData[event.target.name] === '') {
@@ -163,45 +167,48 @@ const FormPage: React.FC = () => {
     } else {
       newValidation[event.target.name] = false
     }
+    newAct.act_data = newActData
     setValidation(newValidation)
-    setActData(newActData)
+    setActData(newAct)
   }
 
   const onChangeSelectActData = (event: CustomEvent<SelectChangeEventDetail>) => {
-    let newActData: any = {...actData}
+    let newAct: any = {...actData}
+    let newActData: any = {...actData.act_data}
     let newValidation: any = {...validation}
-    newActData['act_places'] = event.detail.value
-    if (newActData['act_places'] === '') {
-      newValidation['act_places'] = true
+    newActData['act_place'] = event.detail.value
+    if (newActData['act_place'] === '') {
+      newValidation['act_place'] = true
     } else {
-      newValidation['act_places'] = false
+      newValidation['act_place'] = false
     }
+    newAct.act_data = newActData
     setValidation(newValidation)
-    setActData(newActData)
+    setActData(newAct)
   }
 
   const selectField = () => {
     if (['01', '02'].includes(actData.act_type)) {
-      return ['act_date', 'act_hours', 'act_places', 'act_details', 'act_feels']
+      return ['act_date', 'act_hour', 'act_place', 'act_detail', 'act_feel']
     } else if (actData.act_type == '03') {
-      return ['act_head', 'act_date', 'act_hours', 'act_print', 'act_places', 'act_details', 'act_feels']
+      return ['act_head', 'act_date', 'act_hour', 'act_print', 'act_place', 'act_detail', 'act_feel']
     } else if (['04', '05'].includes(actData.act_type)) {
-      return ['act_head', 'act_places', 'act_details', 'act_feels']
+      return ['act_head', 'act_place', 'act_detail', 'act_feel']
     } else if (['06', '07'].includes(actData.act_type)) {
-      return ['act_head', 'act_date', 'act_places', 'act_details', 'act_feels']
+      return ['act_head', 'act_date', 'act_place', 'act_detail', 'act_feel']
     } else if (['08', '09', '10'].includes(actData.act_type)) {
-      return ['act_head', 'act_date', 'act_details', 'act_feels']
+      return ['act_head', 'act_date', 'act_detail', 'act_feel']
     } else if (actData.act_type == '11') {
-      return ['act_head', 'act_date', 'act_hours', 'act_places', 'act_details', 'act_feels']
+      return ['act_head', 'act_date', 'act_hour', 'act_place', 'act_detail', 'act_feel']
     } else if (actData.act_type == '12') {
-      return ['act_details', 'act_time_starts', 'act_time_ends']
+      return ['act_detail', 'act_time_start', 'act_time_end']
     } else if (actData.act_type == '13') {
-      return ['act_date', 'act_details']
+      return ['act_date', 'act_detail']
     }
   }
 
   const validate = async () => {
-    const asArray = Object.entries(actData);
+    const asArray = Object.entries(actData.act_data);
     const field = selectField()
     const filtered = asArray.filter(([key, value]) => field?.includes(key) && (value == '' || value == 0));
     let i = 0
@@ -221,45 +228,87 @@ const FormPage: React.FC = () => {
   const calTime = (start: string, end: string) => {
     const dateEnd = parseInt((new Date("2020-01-01 "+end).getTime()/1000).toFixed(0))
     const dateStart = parseInt((new Date("2020-01-01 "+start).getTime()/1000).toFixed(0))
-    return (dateEnd - dateStart)/3600
+    return Number(((dateEnd - dateStart)/3600).toFixed(2))
   }
 
-  const onRecord = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onRecord = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
     validate().then( async (vd) => {
       if (!vd) {
-        let path = ""
-        if (id) { path = "update-act" } else { path = "record" }
-        const sendData = {...actData}
-        if ((['03', '11'].includes(actData.act_type)) && actData.act_date.length === 4) 
-        { sendData['act_date'] = actData.act_date+"-00-00" }
+        let done_time = 0
+        if (['01', '02'].includes(actData.act_type)) {
+          done_time = actData.act_data?.act_hour as number
+        } else {
+          done_time = 1
+        }
+        let sendData = {
+          act_type: actData.act_type,
+          act_data: actData.act_data,
+          act_done_time: done_time
+        }
+        if ((['03', '11'].includes(actData.act_type)) && actData.act_data?.act_date?.length === 4) 
+        { sendData.act_data!.act_date = actData.act_data.act_date+"-00-00" }
         console.log(sendData)
-        await axios.post(`https://pcshsptsama.com/www/${path}.php`, JSON.stringify(sendData))
-        .then(res => {
-          console.log(res)
-          present({
-            header: 'ต้องการส่งเลยหรือไม่ ?',
-            buttons: [
-              { text: 'Cancel', handler: async () => {
-                  navigateBack()
-              }},
-              { text: 'Ok', handler: async () => {
-                  pushNavigate('send/'+res.data.act_id)
-              } },
-            ],
-          })
-        })
-        .catch(err => {
-          console.log(err)
-        })
+        //setActData(initialActData)
+        if (id) {
+          let updateData = {
+            act_data: sendData.act_data
+          }
+          console.log(updateData)
+          let path = `https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${student.school}/${student.email}/rec/${id}`
+          AxiosHttpMethod(updateData, path, "update")
+        } else {
+          let path = `https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${student.school}/${student.email}/rec`
+          AxiosHttpMethod(sendData, path, "create")
+        }
       }
     })
+  }
+
+  const AxiosHttpMethod = async (sendData:any, path:string, status:string) => {
+      await axios.post(path, JSON.stringify(sendData))
+      .then(res => {
+        console.log(res)
+        if (res.data === "Record is full") {
+          fullAlert()
+        } else {
+          sendAlert(res, status)
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  const sendAlert = (res:any, status: string) => {
+    present({
+      header: 'ต้องการส่งเลยหรือไม่ ?',
+      buttons: [
+        { text: 'Cancel', handler: async () => {
+            navigateBack()
+        }},
+        { text: 'Ok', handler: async () => {
+          console.log(res.data[0].act_id)
+            pushNavigate('send/'+res.data[0].act_id+"/"+status)
+        } },
+        ],
+      })
+  }
+
+  const fullAlert = () => {
+    present({
+      header: 'บันทึกกิจกรรมครบแล้ว ไม่สามารถบันทึกเพิ่มได้',
+      buttons: [
+        { text: 'OK' },
+        ],
+      })
   }
 
   const onDelete = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
     console.log(actData.act_id)
-    await axios.post(`https://pcshsptsama.com/www/delete-act.php`, JSON.stringify({id : actData.act_id}))
+    await axios.post(`https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${student.school}/${student.email}/recDel/${id}`,
+    )
     .then(res => {
       console.log(res)
       navigateBack()
@@ -282,12 +331,13 @@ const FormPage: React.FC = () => {
       </IonHeader>
       <IonContent>
         <div className="container mx-auto p-5">
-        <form  onSubmit={(e) => onRecord(e)}>
+        <form>
             <h1 className="font-bold text-xl mb-2">{activityType[form]}</h1>
             {selectForm(form)}
-            {!read ? <button type="submit" className="mt-3 bg-gradient-to-r from-pccp-light-orange to-pccp-blue w-full rounded-lg h-12 font-bold">บันทึก</button> : ""}
+            {!read && flag!=="SEND" ? <div onClick={e => onRecord(e)} className="mt-3 border-2 border-success text-center text-success grid content-center w-full rounded-lg h-12 font-bold">บันทึก</div> : ""}
+            {id && flag==="SEND" ? <div onClick={e => onRecord(e)} className="mt-3 border-2 border-primary text-center text-primary grid content-center w-full rounded-lg h-12 font-bold">เปลี่ยนแปลง</div> : ""}
         </form>
-        {id && !read && <div onClick={e => onDelete(e)} className="mt-3 border-2 border-danger text-danger text-center grid content-center w-full rounded-lg h-12 font-bold">ลบ</div>}
+        {id && flag!=="ACCEPT" && <div onClick={e => onDelete(e)} className="mt-3 border-2 border-danger text-danger text-center grid content-center w-full rounded-lg h-12 font-bold">ลบ</div>}
         </div>
       </IonContent>
     </IonPage>

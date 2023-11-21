@@ -15,13 +15,10 @@ const initialState = {
 
 export const fetchCheckActivitiesByName = createAsyncThunk<ActData[],Array<string>>(
   'activity/fetchCheckActivitiesByName',
-  async ([ firstanme, lastname ] , thunkAPI) => {
+  async ([ email, school ] , thunkAPI) => {
     //const token = await auth.currentUser?.getIdToken()
     //const uid = auth.currentUser?.uid
-      const respones: any = await axios.post('https://pcshsptsama.com/www/get-activities.php', 
-      JSON.stringify({
-        tch_firstname: firstanme, tch_lastname: lastname, //token: token, uid: uid
-      }))
+      const respones: any = await axios.get(`https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${school}/${email}/rec?flag=SEND`)
       if (respones.status === 200) {
           return respones.data;
       } else {

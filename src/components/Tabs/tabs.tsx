@@ -4,7 +4,7 @@ import SignupPage from "../../pages/student/Signup";
 import LoginPage from "../../pages/Login";
 import StudentTabs from "./StudentTabs";
 import TeacherTabs from "./TeacherTabs";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../Firebase/AuthContext";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,21 +16,27 @@ const Tabs: React.FC = () => {
   const user = useContext(AuthContext);
   const userData = useSelector((state: RootState) => state.userData)
   const dispatch = useDispatch<AppDispatch>()
+  const [school, setSchool] = useState('')
   const checkName = async () => {
     const { value } = await Storage.get({ key: 'userEmail' })
     return value as string
   };
+  const getSchool = async () => {
+    const sch = await Storage.get({ key: 'userSchool' });
+    setSchool(JSON.parse(JSON.stringify(sch.value)))
+  }
 
   useEffect(() => {
+    getSchool()
     checkName().then((email) => {
-      dispatch(fetchUserBytoken(email))
+      dispatch(fetchUserBytoken([email, school]))
     })
   }, [])
 
   const selecttab = () => {
-      if (Number(userData.user.flag) === 0) {
+      if (userData.user.flag === "STD") {
         return <StudentTabs></StudentTabs>
-      } else if ((Number(userData.user.flag) === 2)) {
+      } else if (userData.user.flag === "TCH") {
         return <TeacherTabs></TeacherTabs>
       }
       

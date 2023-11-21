@@ -8,39 +8,52 @@ interface AchieveState {
 }
 
 interface Points {
-    [key: string]: number
+    [key: string]: number[]
 }
 
 const initialState = {
     points : {
-        "01": 0,
-        "02": 0,
-        "03": 0,
-        "04": 0,
-        "05": 0,
-        "06": 0,
-        "07": 0,
-        "08": 0,
-        "09": 0,
-        "10": 0,
-        "11": 0,
-        "12": 0,
-        "13": 0,
+        "01": [],
+        "02": [],
+        "03": [],
+        "04": [],
+        "05": [],
+        "06": [],
+        "07": [],
+        "08": [],
+        "09": [],
+        "10": [],
+        "11": [],
+        "12": [],
+        "13": [],
     },
     loading: false
 } as AchieveState;
 
 export const fetchAchieveByID = createAsyncThunk<Points, string>(
   "activity/fetchAchieveByID",
-  async (stdID, thunkAPI) => {
+  async (email, thunkAPI) => {
     //const token = await auth.currentUser?.getIdToken()
     //const uid = auth.currentUser?.uid
-    const respones: any = await axios.post(
-      "https://pcshsptsama.com/www/achieve.php",
-      JSON.stringify({ std_id: stdID, /*token: token, uid: uid*/ })
-    );
+    const respones: any = await axios.get(
+      'https://2r5zg4uzoh.execute-api.ap-northeast-2.amazonaws.com/Dev/data/'+email)
     if (respones.status === 200) {
-      return respones.data;
+      let data = {
+        '01' : respones.data[0]['stat_01'],
+        '02' : respones.data[0]['stat_02'],
+        '03' : respones.data[0]['stat_03'],
+        '04' : respones.data[0]['stat_04'],
+        '05' : respones.data[0]['stat_05'],
+        '06' : respones.data[0]['stat_06'],
+        '07' : respones.data[0]['stat_07'],
+        '08' : respones.data[0]['stat_08'],
+        '09' : respones.data[0]['stat_09'],
+        '10' : respones.data[0]['stat_10'],
+        '11' : respones.data[0]['stat_11'],
+        '12' : respones.data[0]['stat_12'],
+        '13' : respones.data[0]['stat_13'],
+      }
+      return data;
     } else {
       return thunkAPI.rejectWithValue(respones.statusText);
     }

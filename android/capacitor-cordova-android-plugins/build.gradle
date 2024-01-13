@@ -47,6 +47,7 @@ dependencies {
     implementation "org.apache.cordova:framework:$cordovaAndroidVersion"
     // SUB-PROJECT DEPENDENCIES START
     implementation "androidx.webkit:webkit:1.4.0"
+    implementation "com.android.support:support-v4:27.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

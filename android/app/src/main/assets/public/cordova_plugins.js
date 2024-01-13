@@ -285,8 +285,8 @@
     {
       "cordova-plugin-advanced-http": "3.3.1",
       "cordova-plugin-file": "7.0.0",
-      "cordova-plugin-file-opener2": "4.0.0",
-      "cordova-plugin-file-transfer": "2.0.1-dev"
+      "cordova-plugin-file-opener2": "3.0.5",
+      "cordova-plugin-file-transfer": "1.7.1"
     };
     // BOTTOM OF METADATA
     });

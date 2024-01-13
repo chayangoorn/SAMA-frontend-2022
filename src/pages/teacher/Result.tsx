@@ -38,7 +38,23 @@ const ResultPage: React.FC = () => {
     getStudent()
   })
 
-  const linkpic = 'https://pcshsptsama.com/www/profile/'
+  const checkIfImageExists = (url:string) => {
+    const img = new Image();
+    img.src = url;
+    
+    if (img.complete) {
+      return true;
+    } else {
+      img.onload = () => {
+        return true;
+      };
+      
+      img.onerror = () => {
+        return false;
+      };
+    }
+  }
+
   const [user, setUser] = useState<StudentUser>()
   const getStudent = async () => {
     await axios.get('https://2r5zg4uzoh.execute-api.ap-northeast-2.amazonaws.com/Dev/data/'+id)
@@ -58,6 +74,10 @@ const ResultPage: React.FC = () => {
     })
   }
 
+  const linkpic = (school:string, email:string) => {
+    return 'https://sama-data-bucket.s3.ap-northeast-2.amazonaws.com/'+school+"/profile_pic/"+email?.split("@")[0]+"."+email?.split("@")[1]+".jpeg"
+  } 
+
   useEffect(() => {
     dispatch(fetchAchieveByID(id))
   }, [dispatch])
@@ -76,8 +96,8 @@ const ResultPage: React.FC = () => {
       <IonContent>
         <div className="w-full mt-14 flex">
           <div className="h-20 w-full bg-pccp-light-orange flex">
-            <img src={ user?.img_path == null || user?.img_path == "" ?
-                blank : linkpic+user.img_path
+            <img src={ checkIfImageExists(linkpic(user?.school as string, user?.email as string)) ?
+                linkpic(user?.school as string, user?.email as string) : blank
             } className="w-40 h-40 rounded-full border-white border-8 -mt-10 -ml-10"/>
             <div>
               <p className="pt-4 ml-5 font-bold text-lg">{user?.firstname} {user?.lastname}</p>

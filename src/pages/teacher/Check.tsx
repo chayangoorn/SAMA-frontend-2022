@@ -1,4 +1,4 @@
-import { IonPage, IonContent, IonRefresher, IonRefresherContent, RefresherEventDetail
+import { IonPage, IonContent, IonRefresher, IonRefresherContent, RefresherEventDetail, useIonViewWillEnter
  } from '@ionic/react'
 import ListBackground from '../../components/ListBackground'
 import { RootState, AppDispatch } from '../../redux/store'
@@ -16,7 +16,11 @@ const CheckPage: React.FC = () => {
 
     useEffect(() => {
         dispatch(fetchCheckActivitiesByName([teacher.email, teacher.school]))
-    }, [data])
+    }, [])
+
+    useIonViewWillEnter(() => {
+        dispatch(fetchCheckActivitiesByName([teacher.email, teacher.school]))
+    }, [])
 
     const handleRefresh = (event: CustomEvent<RefresherEventDetail>) => {
         setTimeout(() => {

@@ -24,13 +24,11 @@ MERGED from [:capacitor-keyboard] C:\Users\Prestige\Documents\GitHub\SAMA-fronte
 MERGED from [:capacitor-status-bar] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\status-bar\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-storage] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-android] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-28:12
+MERGED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-27:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Prestige\.gradle\caches\transforms-3\edd5a18fa5f45e1cd7b5f13581bee1bb\transformed\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Prestige\.gradle\caches\transforms-3\09b4f4be38278718c46421a8bff519aa\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\ce3f79a523d89320dd464c2b2de6183e\transformed\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Prestige\.gradle\caches\transforms-3\174230b6c27dcf853e93097a16088347\transformed\webkit-1.4.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\c49b227a8e67adb07571670136a521cd\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\225b1bc9185f92aea7c8c594f48d16fe\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\9b188530aaf8f03b1fd26ece6eff17c8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\804042e6d116ef92477c35ed4e474038\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\6c888caef4c35a64b5bd1e8d15ed1f50\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -38,19 +36,15 @@ MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Prestige\.gradle\cac
 MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\Prestige\.gradle\caches\transforms-3\3326700239a903574cd434f116984ce4\transformed\fragment-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\faf2aafd49866afc28262ac287a94245\transformed\jetified-activity-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\6346c0995ca131c4694eafb0fe1c82d2\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.media:media:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\20161f11deacad0206554f5341bb5102\transformed\media-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\e0a9d12f3e897339aba9fe52aab12ed9\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\ecfd2bcc7166af43c3474013c9915c76\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\108589b9a8e66769f22ad6533a9c6764\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\f30be6cddd1cb1a58d2bbe4f0ba981da\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\8f0cc5106679f17ca4183612a3419902\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\d25dd96e86a8cd64a1e01d608a43b4e0\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\1e433d054e47118875f70459ac904b44\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1a83f95ecd6f1d201d0c399e10fec966\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\e0a9d12f3e897339aba9fe52aab12ed9\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\ecfd2bcc7166af43c3474013c9915c76\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\aea880d9124fffda8376cc6a8c2e4394\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.transition:transition:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\20f4a1bd64affa45a8fcfad3b3d5961c\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\947228145b58e2d7eed56cb4c4855053\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\2cdedaaae48966dc5e1563a03e5c82fe\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.3.2] C:\Users\Prestige\.gradle\caches\transforms-3\2affdb6e6a1314389bbf6c67f425b6c6\transformed\core-1.3.2\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\Prestige\.gradle\caches\transforms-3\092abf14594a2bd46e0196e56a1bb4c0\transformed\exifinterface-1.3.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\523f2ca22f050be590849c916fb13f4d\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
@@ -60,13 +54,13 @@ MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Prestige\.gradle\cac
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\Prestige\.gradle\caches\transforms-3\b5bb22050c16e7e3ef7157c9e1c528cf\transformed\lifecycle-runtime-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\9e5d546c98c0583457ab6b361e6e0169\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\99fc09b7a4fd3f67c991c1c3da09960c\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\606819f278b58bc206200b494290798d\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\237eb3d8da1904fd51b858bc9ccff5be\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1d9ee9f2a1cc89948b86adacb767832d\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\8a2f5d66e830899c86e713a0434c45a6\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\c187c062974376df2e9c835e0aa68328\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Prestige\.gradle\caches\transforms-3\5d27b656c94f8e06bb1a9b76b3e4c59e\transformed\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\42027eb097c8d1147ffec86ae6f8e5f1\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\606819f278b58bc206200b494290798d\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\237eb3d8da1904fd51b858bc9ccff5be\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1d9ee9f2a1cc89948b86adacb767832d\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.apache.cordova:framework:10.1.2] C:\Users\Prestige\.gradle\caches\transforms-3\a1255153a188d74fd18d11749eb0e1ec\transformed\jetified-framework-10.1.2\AndroidManifest.xml:20:1-27:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\f6909f64b3030f2847e81a88ec0891c9\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
 INJECTED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:2:1-50:12
@@ -90,8 +84,8 @@ INJECTED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\
 		ADDED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:2:11-69
 application
 ADDED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:6:5-45:19
-MERGED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:5-26:19
-MERGED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:5-26:19
+MERGED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-25:19
+MERGED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-25:19
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Prestige\.gradle\caches\transforms-3\edd5a18fa5f45e1cd7b5f13581bee1bb\transformed\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Prestige\.gradle\caches\transforms-3\edd5a18fa5f45e1cd7b5f13581bee1bb\transformed\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Prestige\.gradle\caches\transforms-3\09b4f4be38278718c46421a8bff519aa\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -160,7 +154,6 @@ ADDED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src
 		ADDED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:31:23-65
 uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
 ADDED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:48:5-103
-REJECTED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-83
 	tools:node
 		ADDED from C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:48:81-100
 	android:name
@@ -203,10 +196,6 @@ MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Prestige\.gradle\cache
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\ce3f79a523d89320dd464c2b2de6183e\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Prestige\.gradle\caches\transforms-3\174230b6c27dcf853e93097a16088347\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Prestige\.gradle\caches\transforms-3\174230b6c27dcf853e93097a16088347\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\c49b227a8e67adb07571670136a521cd\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\c49b227a8e67adb07571670136a521cd\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\225b1bc9185f92aea7c8c594f48d16fe\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\225b1bc9185f92aea7c8c594f48d16fe\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\9b188530aaf8f03b1fd26ece6eff17c8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\9b188530aaf8f03b1fd26ece6eff17c8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\804042e6d116ef92477c35ed4e474038\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
@@ -221,32 +210,24 @@ MERGED from [androidx.activity:activity:1.2.0] C:\Users\Prestige\.gradle\caches\
 MERGED from [androidx.activity:activity:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\faf2aafd49866afc28262ac287a94245\transformed\jetified-activity-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\6346c0995ca131c4694eafb0fe1c82d2\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\6346c0995ca131c4694eafb0fe1c82d2\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.media:media:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\20161f11deacad0206554f5341bb5102\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\20161f11deacad0206554f5341bb5102\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\e0a9d12f3e897339aba9fe52aab12ed9\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\e0a9d12f3e897339aba9fe52aab12ed9\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\ecfd2bcc7166af43c3474013c9915c76\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\ecfd2bcc7166af43c3474013c9915c76\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\108589b9a8e66769f22ad6533a9c6764\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\108589b9a8e66769f22ad6533a9c6764\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\f30be6cddd1cb1a58d2bbe4f0ba981da\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\f30be6cddd1cb1a58d2bbe4f0ba981da\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\8f0cc5106679f17ca4183612a3419902\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\8f0cc5106679f17ca4183612a3419902\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\d25dd96e86a8cd64a1e01d608a43b4e0\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\d25dd96e86a8cd64a1e01d608a43b4e0\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\1e433d054e47118875f70459ac904b44\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\1e433d054e47118875f70459ac904b44\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1a83f95ecd6f1d201d0c399e10fec966\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1a83f95ecd6f1d201d0c399e10fec966\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\e0a9d12f3e897339aba9fe52aab12ed9\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\e0a9d12f3e897339aba9fe52aab12ed9\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\ecfd2bcc7166af43c3474013c9915c76\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\ecfd2bcc7166af43c3474013c9915c76\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\aea880d9124fffda8376cc6a8c2e4394\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\aea880d9124fffda8376cc6a8c2e4394\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.transition:transition:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\20f4a1bd64affa45a8fcfad3b3d5961c\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.transition:transition:1.2.0] C:\Users\Prestige\.gradle\caches\transforms-3\20f4a1bd64affa45a8fcfad3b3d5961c\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\947228145b58e2d7eed56cb4c4855053\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\947228145b58e2d7eed56cb4c4855053\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\2cdedaaae48966dc5e1563a03e5c82fe\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\2cdedaaae48966dc5e1563a03e5c82fe\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.3.2] C:\Users\Prestige\.gradle\caches\transforms-3\2affdb6e6a1314389bbf6c67f425b6c6\transformed\core-1.3.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.2] C:\Users\Prestige\.gradle\caches\transforms-3\2affdb6e6a1314389bbf6c67f425b6c6\transformed\core-1.3.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\Prestige\.gradle\caches\transforms-3\092abf14594a2bd46e0196e56a1bb4c0\transformed\exifinterface-1.3.2\AndroidManifest.xml:20:5-22:41
@@ -265,12 +246,6 @@ MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Prestige\.gradle\caches\tr
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\9e5d546c98c0583457ab6b361e6e0169\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\99fc09b7a4fd3f67c991c1c3da09960c\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\99fc09b7a4fd3f67c991c1c3da09960c\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\606819f278b58bc206200b494290798d\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\606819f278b58bc206200b494290798d\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\237eb3d8da1904fd51b858bc9ccff5be\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\237eb3d8da1904fd51b858bc9ccff5be\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1d9ee9f2a1cc89948b86adacb767832d\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1d9ee9f2a1cc89948b86adacb767832d\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\8a2f5d66e830899c86e713a0434c45a6\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\8a2f5d66e830899c86e713a0434c45a6\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\c187c062974376df2e9c835e0aa68328\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
@@ -279,6 +254,12 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Prestige
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Prestige\.gradle\caches\transforms-3\5d27b656c94f8e06bb1a9b76b3e4c59e\transformed\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\42027eb097c8d1147ffec86ae6f8e5f1\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Prestige\.gradle\caches\transforms-3\42027eb097c8d1147ffec86ae6f8e5f1\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\606819f278b58bc206200b494290798d\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\606819f278b58bc206200b494290798d\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\237eb3d8da1904fd51b858bc9ccff5be\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\237eb3d8da1904fd51b858bc9ccff5be\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1d9ee9f2a1cc89948b86adacb767832d\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\1d9ee9f2a1cc89948b86adacb767832d\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [org.apache.cordova:framework:10.1.2] C:\Users\Prestige\.gradle\caches\transforms-3\a1255153a188d74fd18d11749eb0e1ec\transformed\jetified-framework-10.1.2\AndroidManifest.xml:25:5-44
 MERGED from [org.apache.cordova:framework:10.1.2] C:\Users\Prestige\.gradle\caches\transforms-3\a1255153a188d74fd18d11749eb0e1ec\transformed\jetified-framework-10.1.2\AndroidManifest.xml:25:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Prestige\.gradle\caches\transforms-3\f6909f64b3030f2847e81a88ec0891c9\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
@@ -324,12 +305,12 @@ ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitH
 	android:name
 		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-77
 provider#io.github.pwlin.cordova.plugins.fileopener2.FileProvider
-ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:9-25:20
+ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-24:20
 	android:grantUriPermissions
-		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-47
+		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-47
 	android:authorities
-		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-72
+		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-72
 	android:exported
-		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-37
+		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-37
 	android:name
-		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-84
+		ADDED from [:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-84

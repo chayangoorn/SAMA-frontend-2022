@@ -21,6 +21,7 @@ const HomePage: React.FC = () => {
   const userData = useSelector((state: RootState) => state.userData)
   const actData = useSelector((state: RootState) => state.actData)
   const [school, setSchool] = useState('')
+  const [pic, setPic] = useState<boolean>()
   let student = userData.user as StudentUser
   const dispatch = useDispatch<AppDispatch>()
   const router = useIonRouter()
@@ -29,13 +30,32 @@ const HomePage: React.FC = () => {
     setSchool(JSON.parse(JSON.stringify(sch.value)))
   }
 
-  useEffect(() => {
+  useIonViewWillEnter(() => {
     getSchool()
     dispatch(fetchUserBytoken([user?.email, school]))
-    console.log(student)
+    dispatch(fetchActivitiesByID([student.school, user?.email]))
+    setPic(checkIfImageExists(linkpic))
   }, [])
 
-  const linkpic = 'https://pcshsptsama.com/www/profile/'
+  const checkIfImageExists = (url:string) => {
+    const img = new Image();
+    img.src = url;
+    
+    if (img.complete) {
+      return true;
+    } else {
+      img.onload = () => {
+        return true;
+      };
+      
+      img.onerror = () => {
+        return false;
+      };
+    }
+  }
+  
+
+  const linkpic = 'https://sama-data-bucket.s3.ap-northeast-2.amazonaws.com/'+userData.user.school+"/profile_pic/"+userData.user.email.split("@")[0]+"."+userData.user.email.split("@")[1]+".jpeg"
 
   const navigate = (path: string) => {
     router.push(path, 'forward', 'push')
@@ -50,7 +70,7 @@ const HomePage: React.FC = () => {
               <div className="relative pb-2/3 sm:pt-1/3 h-24">
               <img
                 src={
-                  userData.user.img_path ? linkpic+userData.user.img_path : blank
+                  pic ? linkpic : blank
                 }
                 className="absolute inset-0 w-full h-full object-cover rounded-md"
               />

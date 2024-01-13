@@ -1,13 +1,13 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.pccp.activitys"
-4    android:versionCode="15"
-5    android:versionName="2.0.0" >
+4    android:versionCode="16"
+5    android:versionName="2.1.0" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="23"
 8-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml
-9        android:targetSdkVersion="31" />
+9        android:targetSdkVersion="33" />
 9-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
@@ -118,15 +118,15 @@
 65-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:43:17-51
 66        </provider>
 67        <provider
-67-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:9-25:20
+67-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-24:20
 68            android:name="io.github.pwlin.cordova.plugins.fileopener2.FileProvider"
-68-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-84
+68-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-84
 69            android:authorities="com.pccp.activitys.fileOpener2.provider"
-69-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-72
+69-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-72
 70            android:exported="false"
-70-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-37
+70-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-37
 71            android:grantUriPermissions="true" >
-71-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-47
+71-->[:capacitor-cordova-android-plugins] C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-47
 72            <meta-data
 72-->C:\Users\Prestige\Documents\GitHub\SAMA-frontend-2022\android\app\src\main\AndroidManifest.xml:41:13-43:64
 73                android:name="android.support.FILE_PROVIDER_PATHS"

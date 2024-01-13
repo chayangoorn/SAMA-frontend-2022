@@ -1,7 +1,6 @@
 import { IonPage, IonContent, useIonAlert, IonSelect, IonSelectOption, SelectChangeEventDetail } from "@ionic/react";
 import React, { useState } from "react";
 import { auth } from "../Firebase/firebase";
-import { Auth } from "@aws-amplify/auth"
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { StudentUser, TeacherUser } from "../redux/type";

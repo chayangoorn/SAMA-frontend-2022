@@ -8,9 +8,10 @@ interface MenuListProps {
     email?: string
     flag?: string
     user_id?: string
+    school?: string
 }
 
-const MenuList: React.FC<MenuListProps> = ({email, flag, user_id}) => {
+const MenuList: React.FC<MenuListProps> = ({email, flag, user_id, school}) => {
 
     const router = useIonRouter()
     const [presentAlert] = useIonAlert()
@@ -78,15 +79,15 @@ const MenuList: React.FC<MenuListProps> = ({email, flag, user_id}) => {
     }
 
     const checkEmail = async (newemail: string) => {
-        await axios.post('https://pcshsptsama.com/www/register.php', JSON.stringify(
-            {email: newemail, user_id: Number(user_id), flag: flag, method: "update-email"}))
+        await axios.post(`https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${school}/${email}/profile`, JSON.stringify(
+            {new_email: newemail}))
         .then(async (res) => {
-            if (res.data === "This email already exists in the system.") {
+            if (res.data === "Email already exists") {
                 await presentAlert({
                     message: res.data,
                     buttons: [{text: "OK"}]
                 })            
-            } else if (res.data === "update email completed!") {
+            } else if (res.data === "Update account successful") {
                 await presentAlert({
                     message: res.data,
                     buttons: [
@@ -98,6 +99,7 @@ const MenuList: React.FC<MenuListProps> = ({email, flag, user_id}) => {
                                 buttons: [{
                                     text: "OK", handler: async () => {
                                         await Storage.remove({ key: 'userEmail' });
+                                        await Storage.remove({ key: 'userSchool' });
                                         await auth.signOut()
                                     }
                                 }]
@@ -177,13 +179,17 @@ const MenuList: React.FC<MenuListProps> = ({email, flag, user_id}) => {
     }
 
     const deleteAccount = async () => {
-       await axios.post("https://pcshsptsama.com/www/register.php", JSON.stringify({user_id: user_id, flag: flag, method: "delete-user"}))
+       await axios.get(`https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/${school}/${email}/profile/del`)
         .then(async (res) => {
-            if (res.data === "delete account completed!") {
+            if (res.data === "Delete account successful") {
                 await auth.currentUser?.delete()
                 await presentAlert({
-                    message: "Delete Completed!",
-                    buttons: ["OK"]
+                    message: res.data,
+                    buttons: [{text: "OK", handler: async () => {
+                        await Storage.remove({ key: 'userEmail' });
+                        await Storage.remove({ key: 'userSchool' });
+                        await auth.currentUser?.delete()
+                    }}]
                 })
             }
         })
@@ -205,27 +211,22 @@ const MenuList: React.FC<MenuListProps> = ({email, flag, user_id}) => {
     return (
         <div>
             <div className="p-5 grid gap-y-6 w-full bg-gradient-to-r from-pccp-light-orange to-pccp-blue rounded-lg">
-            { /*
-                <div className="flex border-b-2 pb-1" id="open-modal">
-                    <div className="ml-3 text-xl"><IonIcon src={create}></IonIcon></div>
-                    <div className="ml-5">แก้ไขข้อมูลส่วนตัว</div>
-                </div>
-            */}
-            
+            <div className="flex border-b-2 pb-1" id="open-modal">
+                <div className="ml-3 text-xl"><IonIcon src={create}></IonIcon></div>
+                <div className="ml-5">แก้ไขข้อมูลส่วนตัว</div>
+            </div>
             <div className="flex border-b-2 pb-1" onClick={async () => {
                 checkOldPassword(1)
             }}>
                 <div className="ml-3 text-xl"><IonIcon src={lockOpen}></IonIcon></div>
                 <div className="ml-5">เปลี่ยนรหัสผ่าน</div>
             </div>
-            { /*
-                <div className="flex border-b-2 pb-1" onClick={async () => {
-                    checkOldPassword(2)
-                    }}>
-                    <div className="ml-3 text-xl"><IonIcon src={mail}></IonIcon></div>
-                    <div className="ml-5">เปลี่ยนอีเมล</div>
-                </div>
-            */}
+            <div className="flex border-b-2 pb-1" onClick={async () => {
+                checkOldPassword(2)
+                }}>
+                <div className="ml-3 text-xl"><IonIcon src={mail}></IonIcon></div>
+                <div className="ml-5">เปลี่ยนอีเมล</div>
+            </div>
             
             <div className="flex border-b-2 pb-1" onClick={pushNavigate}>
                 <div className="ml-3 text-xl"><IonIcon src={informationCircle}></IonIcon></div>

@@ -13,7 +13,7 @@ const initialState = {
   loading: false
 } as ActivitiesState
 
-export const fetchActivitiesByID = createAsyncThunk<ActData[],Array<string>>(
+export const fetchActivitiesByID = createAsyncThunk<ActData[],Array<string|null|undefined>>(
   'activity/fetchActivitiesByID',
   async ([school, email] , thunkAPI) => {
     //const token = await auth.currentUser?.getIdToken()
@@ -32,7 +32,6 @@ export const fetchActivitiesByIDAT = createAsyncThunk<ActData[],Array<string>>(
   async ([ act_type, school, email] , thunkAPI) => {
     //const token = await auth.currentUser?.getIdToken()
     //const uid = auth.currentUser?.uid
-    console.log(act_type, school, email)
       const respones: any = await axios.get('https://w1fyg8naxk.execute-api.ap-northeast-2.amazonaws.com/Dev/'+school+"/"+email+"/rec?act_type="+act_type)
       if (respones.status === 200) {
           return respones.data;
